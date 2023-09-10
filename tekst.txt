@@ -1,1 +1,67 @@
-Blairmorite is a very rare porphyritic volcanic rock named after the community of Blairmore in southwestern Alberta, Canada. It is characterized by dominant phenocrysts of analcime in a matrix of analcime, sanidine and alkalic pyroxene, with accessory titanite, melanite and nepheline. It is a leucocratic variety of analcimite. Blairmorite is known from only two geological formations worldwide: the Crowsnest Formation in Alberta, where it is associated with agglomerates and tuffs from explosive eruptions, and the Lupata Gorge in Mozambique. This specimen of blairmorite, found in the Crowsnest Formation, is about 17 centimetres (6.7 in) in length.
+LSI/LSA (“latent semantic indexing/analysis”) je ekstraktivna metoda za sumiranje
+teksta. Ekstraktivne metode sumiranja tekst sumiraju tako što iz teksta izvuku rečenice
+koje imaju najveći značaj za taj tekst. Postoje i apstraktivne metode za sumiranje.
+Apstraktivne metode prave novi tekst koji predstavlja skraćenu verziju originala.
+ChatGPT moze da uradi apstraktivno sumiranje, što znači da ću moći da uporedim moj
+metod sa njim na kraju i da vidim šta je bolje u kom slučaju i koliko je bolje.
+LSI:
+LSI koristi matematičku metodu SVD (“singular value decomposition”). SVD aproksimira
+datu matricu kao proizvod 3 matrice. O sumiranju korišćenjem LSI-a sam pročitao u
+radu “Automatic text summarization based on latent semantic indexing”. Prvi korak je da
+se od nekog teksta napravi matrica u kojoj kolone
+predstavljaju rečenice, a vrste broj ponavljanja neke
+reči u toj rečenici. Za pravljenje ove matrice bih
+koristio funkciju “CountVectorizer.transform()” iz
+“sklearn” biblioteke. Nakon toga se na dobijenoj
+matrici X radi SVD i dobijaju se matrice T0, S0 i D0
+(X=T0*S0*D0.T, T0*T0.T = I,D0*D0.T = I, S0 = S0.T).
+Matrica S0 je dijagonalna matrica što znači da su sve
+vrednosti sem vrednosti na dijagonali 0. Vrednosti su
+opadajuće poređane što znači da je vrednost u prvoj
+vrsti najveća, a vrednost u poslednjoj vrsti koja ima
+neku vrednosti različitu od nule je najmanja. Redukcija
+dimenzionalnosti se radi tako što se iz matrice S0 skidaju poslednja vrsta i kolona, iz
+matrice T0 poslednja kolona i iz matrice D0 poslednja vrsta, sve dok se odnos sume
+elemenata redukovane matrice S i sume elemenata originalne matrice S0 ne spusti
+ispod izabranog praga.Ovime se dobijaju matrice S, T i D (imaju ista svojstva kao
+matrice S0, T0 i D0). X̂ = T*S*D. Matrica X̂ je manjeg ranga ali istih dimenzija kao matrica
+X. Matrica koja se dobija kao proizvod X̂ .T (transponovana matrica) i X̂ je matrica koja
+sadrži vrednosti sličnosti među rečenicama. U dobijenoj matrici vrednost na poziciji i,j
+predstavlja sličnost rečenice i sa rečenicom j.
+
+X̂ .T = D*S*T.T X̂ .T * X̂ = D*S*S*D.T.
+
+U toj matrici nađem sličnosti susednih rečenica. Između rečenica koje imaju malu
+sličnost odredimo paragrafe, ovime svaki paragraf ima tačno jednu temu. Bitnost jedne
+rečenice dobijemo tako što saberemo sličnosti između te rečenice i svih ostalih u tom
+
+paragrafu. Sumirani tekst dobijamo tako što iz svakog paragrafa izaberemo n rečenica
+sa najvećom bitnosti.
+Unapređenje za srpski jezik bi bilo korišćenje stemovanja ili lematizacije. Stemovanje
+skida par slova sa kraja reči (sufiks) i time dobija koren, pri stemovanju može doći do
+greške jer je moguće dobiti reč koja nema isto značenje, nakon skidanja sufiksa.
+Lematizacija svaku reč pretvara u njen pravi koren i time reč sigurno zadržava svoje
+značenje. Pretpostavka je da će svođenje reči na njen koren dovesti do poboljšanja kad
+je u pitanju srpski jezik jer se ključna reč može javiti u raznim oblicima i padežima. Za
+stemovanje bih koristio SrbAI bibloiteku. Za lematizaciju bih koristio SpacyLookup-ov
+lematizer za srpski. Proces sumiranja bi se radio na originalnom tekstu na stemovanom
+tekstu i na lematizovanom tekstu.
+Upoređivanje modela:
+Za upoređivanje modela ću koristiti ROUGE koji je najpoznatija metoda za evaluiranje
+sumiranja. Za ROUGE bih koristio “rouge-score” biblioteku. Našao sam dataset koji
+sadrži članke iz vesti i na njemu bih testirao i video uspešnost svake metode.
+Upoređivao bih i uspešnost na sumiranju književnih dela npr. pripovetki i pojedinačnih
+poglavlja knjiga. Na kraju bih mogao na nekim specijalnim primerima da uporedim moje
+sumiranje sa sumiranjem ChatGPT-a.
+Pročitana literatura:
+Automatic text summarization based on latent semantic indexing
+Language Models are Few-Shot Learners, do 10. strane
+Learning to summarize from human feedback, do 16. strane
+Language Models are Unsupervised Multitask Learners, do 10. strane
+Improving Language Understanding by Generative Pre-Training
+Proximal Policy Optimization Algorithms
+Attention Is All You Need
+Ne znam da li sajtova i blogova spadaju u literaturu ali ovi su meni pomogli da bolje
+razumem radove:
+Foundations of Machine Learning:Singular Value Decomposition (SVD)
+Qrash Course: Reinforcement Learning 101 & Deep Q Networks in 10 Minutes - oba dela

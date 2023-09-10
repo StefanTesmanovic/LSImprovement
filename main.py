@@ -10,7 +10,7 @@ import re
 
 def get_sentences_from_file(filename):
     sentences = []
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         text = file.read()
         pattern = r'\.{3}\n|\.{3}|\.\n|\. |[!] |[?] |[!]+\n|[?]+\n'
         sentences = re.split(pattern, text)
@@ -89,7 +89,7 @@ prev_l_max = adj_sim_norm[0]
 prev_r_max = adj_sim_norm[len(adj_sim_norm)-1]
 l_max = []
 r_max = []
-for i in range(1, len(adj_sim) - 1):
+for i in range(1, len(adj_sim_norm) - 1):
     if adj_sim_norm[i - 1] > adj_sim_norm[i] and adj_sim_norm[i] < adj_sim_norm[i + 1]:
         x.append(i)
         min.append(adj_sim_norm[i])
@@ -133,7 +133,7 @@ extracted = []
 for l in sorted_indexes:
     extracted.append(np.sort(l[0:int(len(l)*sentence_percentage)]))
 print(extracted)
-
+'''
 from classla import Pipeline
 classla.download('sr')
 #classla.download('sr', type='nonstandard')
@@ -142,4 +142,5 @@ nlp = Pipeline(lang='sr', processors='tokenize,pos,lemma')
 sentence = "Ovo je primer za lematizaciju."
 doc = nlp(' '.join(get_sentences_from_file("tekst.txt")))
 #doc = nlp(sentence)
-print(doc)
+#print(doc)
+'''
