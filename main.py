@@ -19,27 +19,8 @@ print(Um.shape,"\n")
 print(Sm.shape,"\n")
 print(Vt.shape)
 
-
-
-#import matplotlib.pyplot as plt
-#
-#plt.rcParams["figure.figsize"] = [7.50, 3.50]
-#plt.rcParams["figure.autolayout"] = True
-
 (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.975)
-
-
-#x = list(range(0, len(adj_sim)))
-#plt.title("Adjacent sentence graph")
-#plt.plot(x, adj_sim, color="black")
-#plt.plot(x, adj_sim_norm, color="blue")
-#plt.show()
-#plt.title("depth graph")
-#plt.plot(x, depth_norm, color="black")
-#plt.show()
-
 ss = SS(Vt, Sm)
-adj_sim = calculate_adjacent_similarity(ss)
 
 
 
