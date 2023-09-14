@@ -33,6 +33,8 @@ nlp = Pipeline(lang='sr', processors='tokenize,pos,lemma')
 
 sentence = "Ovo je primer za lematizaciju."
 doc = nlp(' '.join(get_sentences_from_file("tekst.txt")))
+lemma = doc.sentences[0].words[0].lemma
+lemmas = [word.lemma for word in doc.sentences[0].words]
 #doc = nlp(sentence)
 #print(doc)
 '''
