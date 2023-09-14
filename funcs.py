@@ -10,8 +10,6 @@ def get_sentences_from_file(filename):
         pattern = r'\.{3}\n|\.{3}|\.\n|\. |[!] |[?] |[!]+\n|[?]+\n'
         sentences = re.split(pattern, text)
         sentences = [sentence.replace("\n", " ") for sentence in sentences]
-        print(sentences)
-        print(type(sentences))
     return sentences
 
 def remove_zero_columns(X):
@@ -29,17 +27,13 @@ def tfidf(file_name):
     X = np.transpose(X)
     X = remove_zero_columns(X)
     return X
-    #print(X)
     #a = list(vectorizer.get_feature_names_out())
-    #print(a)
 def reduce(Um, Sm, Vt, l):
     sum = np.sum(Sm)
     for i in range(int(len(Sm)/2), len(Sm)):
-      print(Sm[:i])
       if(i == len(Sm)-1):
           return(Um, Sm, Vt)
       if(np.sum(Sm[:i])/sum >= l):#ulazi ako prvih i vrednosti zadovoljava nejdnakost
-        print(i)
         return (np.delete(Um,np.s_[i:],1), Sm[:i], np.delete(Vt, np.s_[i:], 0))
 
 def WW(Um, Sm):
@@ -86,12 +80,10 @@ def depth_improved_function(ss, paragraph_split_treshold):
     for i in range(len(depth_norm)):
         if(depth_norm[i] > paragraph_split_treshold):
           paragraph_split.append(x[i])
-    return (depth_norm, paragraph_split)
+    return [depth_norm, paragraph_split]
 
 def extract_sentances(ss, sentence_percentage, depth_function, paragraph_split_treshold):
-    adj_sim_norm = calculate_adjacent_similarity(ss)
-    par_split = depth_function(adj_sim_norm, paragraph_split_treshold)[1]
-    last_split = 0
+    par_split = depth_function(ss, paragraph_split_treshold)[1]
     intensities = np.linalg.norm(ss, axis=0)
     ss_norm = ss/intensities
     sim_score = np.sum(ss_norm, axis=1)
@@ -106,6 +98,7 @@ def extract_sentances(ss, sentence_percentage, depth_function, paragraph_split_t
 
     extracted = []
     for l in sorted_indexes:
-        extracted.append(np.sort(l[0:int(len(l)*sentence_percentage)]))
-    print(extracted)
+        extracted = np.concatenate((extracted, (np.sort(l[0:int(len(l)*sentence_percentage)]))))
+    extracted = extracted.astype(int)
+    return extracted
     

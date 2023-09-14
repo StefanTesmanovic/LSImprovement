@@ -22,8 +22,8 @@ print(Vt.shape)
 (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.975)
 ss = SS(Vt, Sm)
 
-
-
+extracted = extract_sentances(ss, 0.4, depth_improved_function, 0.4)
+print(extracted)
 '''
 from classla import Pipeline
 classla.download('sr')
