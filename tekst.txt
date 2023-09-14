@@ -23,7 +23,7 @@ neku vrednosti različitu od nule je najmanja. Redukcija
 dimenzionalnosti se radi tako što se iz matrice S0 skidaju poslednja vrsta i kolona, iz
 matrice T0 poslednja kolona i iz matrice D0 poslednja vrsta, sve dok se odnos sume
 elemenata redukovane matrice S i sume elemenata originalne matrice S0 ne spusti
-ispod izabranog praga.Ovime se dobijaju matrice S, T i D (imaju ista svojstva kao
+ispod izabranog praga. Ovime se dobijaju matrice S, T i D (imaju ista svojstva kao
 matrice S0, T0 i D0). X̂ = T*S*D. Matrica X̂ je manjeg ranga ali istih dimenzija kao matrica
 X. Matrica koja se dobija kao proizvod X̂ .T (transponovana matrica) i X̂ je matrica koja
 sadrži vrednosti sličnosti među rečenicama. U dobijenoj matrici vrednost na poziciji i,j

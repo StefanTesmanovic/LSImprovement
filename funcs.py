@@ -22,11 +22,12 @@ def tfidf(file_name):
     vectorizer = TfidfVectorizer()
     file_name = "tekst.txt"
     #X = vectorizer.fit_transform(corpus)
-    X = vectorizer.fit_transform(get_sentences_from_file(file_name))
+    sentences = get_sentences_from_file(file_name)
+    X = vectorizer.fit_transform(sentences)
     X = X.toarray()
     X = np.transpose(X)
     X = remove_zero_columns(X)
-    return X
+    return (X, sentences)
     #a = list(vectorizer.get_feature_names_out())
 def reduce(Um, Sm, Vt, l):
     sum = np.sum(Sm)

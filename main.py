@@ -12,7 +12,7 @@ from funcs import *
 
 
 file_name = "tekst.txt"
-X = tfidf(file_name)
+(X, sentences) = tfidf(file_name)
 
 Um, Sm, Vt = np.linalg.svd(X)
 print(Um.shape,"\n")
@@ -23,7 +23,8 @@ print(Vt.shape)
 ss = SS(Vt, Sm)
 
 extracted = extract_sentances(ss, 0.4, depth_improved_function, 0.4)
-print(extracted)
+for i in extracted:
+    print(sentences[i])
 '''
 from classla import Pipeline
 classla.download('sr')
