@@ -1,5 +1,5 @@
 import classla
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 import numpy as np
 import re
 
@@ -18,16 +18,22 @@ def remove_zero_columns(X):
 
     # Create a new matrix without columns of all zeros
     return X[:, non_zero_columns]
-def tfidf(file_name):
-    vectorizer = TfidfVectorizer()
-    file_name = "tekst.txt"
-    #X = vectorizer.fit_transform(corpus)
-    sentences = get_sentences_from_file(file_name)
+
+def countvec(sentences):
+    vectorizer = CountVectorizer()
     X = vectorizer.fit_transform(sentences)
     X = X.toarray()
     X = np.transpose(X)
     X = remove_zero_columns(X)
-    return (X, sentences)
+    return X
+
+def tfidf(sentences):
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(sentences)
+    X = X.toarray()
+    X = np.transpose(X)
+    X = remove_zero_columns(X)
+    return X
     #a = list(vectorizer.get_feature_names_out())
 def reduce(Um, Sm, Vt, l):
     sum = np.sum(Sm)

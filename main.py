@@ -11,8 +11,8 @@ from funcs import *
 
 
 
-file_name = "tekst.txt"
-(X, sentences) = tfidf(file_name)
+sentences = ["recenica", "another one"]
+X = tfidf(sentences)
 
 Um, Sm, Vt = np.linalg.svd(X)
 print(Um.shape,"\n")
