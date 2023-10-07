@@ -1,7 +1,22 @@
 import classla
+from classla import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 import numpy as np
 import re
+import json
+import math
+def get_sentances_and_sums_from_json(filename):
+    with open(filename, 'r', encoding='utf-8') as json_file:
+        data = json.load(json_file)
+    sentences = []
+    sums = []
+    for entry in data:
+        source_sentences = entry["source"]
+        sentences.append(source_sentences)
+    for entry in data:
+        source_sum = entry["target"]
+        sums.append(source_sum)
+    return (sentences, sums)
 
 def get_sentences_from_file(filename):
     sentences = []
@@ -11,6 +26,14 @@ def get_sentences_from_file(filename):
         sentences = re.split(pattern, text)
         sentences = [sentence.replace("\n", " ") for sentence in sentences]
     return sentences
+
+def lematize_list_of_sentences(sentences, nlp):
+    sentences_lem = []
+    doc = nlp(' '.join(sentences))
+    for sent in doc.sentences:
+        sentences_lem.append(" ".join([word.lemma for word in sent.words]))
+    #print(sentences_lem)
+    return sentences_lem
 
 def remove_zero_columns(X):
     # Find indices of columns with all zeros
@@ -47,20 +70,38 @@ def WW(Um, Sm):
   return (Um * Sm**2) @ np.transpose(Um)
 
 def SS(Vt, Sm):
-    return (np.transpose(Vt) * Sm**2) @ Vt
+    ss = (np.transpose(Vt) * Sm**2) @ Vt
+    intensities = np.linalg.norm(ss, axis=0)
+    return ss/intensities
 
-def depth(ss):
-    pass
 def calculate_adjacent_similarity(ss):
     intensities = np.linalg.norm(ss, axis=0)
     ss_norm = ss/intensities
     adj_sim_norm = np.diagonal(ss_norm, offset=1)
     return adj_sim_norm
 
+def depth_old(ss, paragraph_split_treshold = 0.6):
+    adj_sim_norm = calculate_adjacent_similarity(ss)
+    x = []
+    depth = [1]
+    for i in range(1, len(adj_sim_norm) - 1):
+        if adj_sim_norm[i - 1] > adj_sim_norm[i] and adj_sim_norm[i] < adj_sim_norm[i + 1]:
+            adj_sim_norm_i = adj_sim_norm[i]
+            if adj_sim_norm[i] == 0: adj_sim_norm_i = 0.000000000000000000001
+            depth.append((adj_sim_norm[i-1]+adj_sim_norm[i+1])/(adj_sim_norm_i*2)-1)
+            x.append(i)
+    paragraph_split = []
+    depth = np.array(depth)
+    depth = depth/ np.max(depth)
+    for i in range(1, len(depth)):
+        if(depth[i] > paragraph_split_treshold):
+          paragraph_split.append(x[i-1])
+    return [depth, paragraph_split]
+
 def depth_improved_function(ss, paragraph_split_treshold):
     adj_sim_norm = calculate_adjacent_similarity(ss)
     x = []
-    depth_norm = []
+    depth_norm = [1]
     min = []
     prev_l_max = adj_sim_norm[0]
     prev_r_max = adj_sim_norm[len(adj_sim_norm)-1]
@@ -68,7 +109,7 @@ def depth_improved_function(ss, paragraph_split_treshold):
     r_max = []
     for i in range(1, len(adj_sim_norm) - 1):
         if adj_sim_norm[i - 1] > adj_sim_norm[i] and adj_sim_norm[i] < adj_sim_norm[i + 1]:
-            x.append(i)
+            x.append(i-1)
             min.append(adj_sim_norm[i])
         if adj_sim_norm[i - 1] < adj_sim_norm[i] and adj_sim_norm[i] >  adj_sim_norm[i + 1]:
             l_max.append(adj_sim_norm[i])
@@ -82,30 +123,33 @@ def depth_improved_function(ss, paragraph_split_treshold):
             r_max.append(prev_r_max)
     for i in range(0, len(x)):
         depth_norm.append((l_max[x[i]]+r_max[len(r_max)-1-x[i]])/(1-min[i]))
-    depth_norm = depth_norm/max(depth_norm)
+    depth_norm = np.array(depth_norm)
+    depth_norm = depth_norm/np.max(depth_norm)
     paragraph_split = []
-    for i in range(len(depth_norm)):
+    for i in range(1, len(depth_norm)):
         if(depth_norm[i] > paragraph_split_treshold):
-          paragraph_split.append(x[i])
+          paragraph_split.append(x[i-1]+1)
     return [depth_norm, paragraph_split]
 
-def extract_sentances(ss, sentence_percentage, depth_function, paragraph_split_treshold):
-    par_split = depth_function(ss, paragraph_split_treshold)[1]
-    intensities = np.linalg.norm(ss, axis=0)
-    ss_norm = ss/intensities
+def extract_sentances(ss_norm, sentence_percentage, depth_function, paragraph_split_treshold = 0.5):
+    par_split = depth_function(ss_norm, paragraph_split_treshold)[1]
     sim_score = np.sum(ss_norm, axis=1)
-    sorted_indexes = [np.argsort(sim_score[0:par_split[0]])[::-1]]
-    for i in range(1, len(par_split)):
-        to_app = np.argsort(sim_score[par_split[i-1]:par_split[i]])[::-1]
-        to_app = to_app+par_split[i-1]
+    if(len(par_split) != 0):
+        sorted_indexes = [np.argsort(sim_score[0:par_split[0]])[::-1]]
+        for i in range(1, len(par_split)):
+            to_app = np.argsort(sim_score[par_split[i-1]:par_split[i]])[::-1]
+            to_app = to_app+par_split[i-1]
+            sorted_indexes.append(to_app)
+        to_app = np.argsort(sim_score[par_split[len(par_split)-1]:])[::-1]
+        to_app = to_app + par_split[len(par_split)-1]
         sorted_indexes.append(to_app)
-    to_app = np.argsort(sim_score[par_split[len(par_split)-1]:])
-    to_app = to_app + par_split[len(par_split)-1]
-    sorted_indexes.append(to_app)
+    else:
+        to_app = np.argsort(sim_score)[::-1]
+        sorted_indexes = [to_app]
 
     extracted = []
     for l in sorted_indexes:
-        extracted = np.concatenate((extracted, (np.sort(l[0:int(len(l)*sentence_percentage)]))))
+        extracted = np.concatenate((extracted, (np.sort(l[0:math.ceil(len(l)*sentence_percentage)]))))
     extracted = extracted.astype(int)
     return extracted
     

@@ -2,39 +2,37 @@
 """
 Prilikom upotrebe softvera obavezno je citiranje radova navedenih uz njega i stranice ReLDI repozitorijuma
 """
-import classla
-
+from classla import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
-import re
 from funcs import *
+import random
 
 
 
-sentences = ["recenica", "another one"]
-X = tfidf(sentences)
-
-Um, Sm, Vt = np.linalg.svd(X)
-print(Um.shape,"\n")
-print(Sm.shape,"\n")
-print(Vt.shape)
-
-(Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.975)
-ss = SS(Vt, Sm)
-
-extracted = extract_sentances(ss, 0.4, depth_improved_function, 0.4)
-for i in extracted:
-    print(sentences[i])
-'''
-from classla import Pipeline
-classla.download('sr')
-#classla.download('sr', type='nonstandard')
+(sentences , sums) = get_sentances_and_sums_from_json("dataset.json")
 nlp = Pipeline(lang='sr', processors='tokenize,pos,lemma')
+con_indexes = []
+for i in range(1):
+    rand_indexes = random.sample(range(50), 5)
+    sentences_concat = []
+    for r in rand_indexes:
+        sentences_concat += sentences[r]
+    print(sentences_concat)
+    X = tfidf(lematize_list_of_sentences(sentences_concat, nlp))
+    Um, Sm, Vt = np.linalg.svd(X)
+    #print(Um.shape,"\n")
+    #print(Sm.shape,"\n")
+    #print(Vt.shape)
 
-sentence = "Ovo je primer za lematizaciju."
-doc = nlp(' '.join(get_sentences_from_file("tekst.txt")))
-lemma = doc.sentences[0].words[0].lemma
-lemmas = [word.lemma for word in doc.sentences[0].words]
-#doc = nlp(sentence)
-#print(doc)
-'''
+    (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.975)
+    ss = SS(Vt, Sm)
+    extracted = extract_sentances(ss, 0.4, depth_improved_function, 0.4)
+    print(len(extracted), " ", len(sentences_concat))
+
+
+
+
+#classla.download('sr')
+#classla.download('sr', type='nonstandard')
+
