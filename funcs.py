@@ -71,16 +71,13 @@ def WW(Um, Sm):
 
 def SS(Vt, Sm):
     ss = (np.transpose(Vt) * Sm**2) @ Vt
-    intensities = np.linalg.norm(ss, axis=0)
-    return ss/intensities
+    return ss
 
 def calculate_adjacent_similarity(ss):
-    intensities = np.linalg.norm(ss, axis=0)
-    ss_norm = ss/intensities
-    adj_sim_norm = np.diagonal(ss_norm, offset=1)
-    return adj_sim_norm
+    adj_sim = np.diagonal(ss, offset=1)
+    return adj_sim
 
-def depth_old(ss, paragraph_split_treshold = 0.6):
+def depth_old(ss, paragraph_split_treshold = 1):
     adj_sim_norm = calculate_adjacent_similarity(ss)
     x = []
     depth = [1]
@@ -98,7 +95,7 @@ def depth_old(ss, paragraph_split_treshold = 0.6):
           paragraph_split.append(x[i-1])
     return [depth, paragraph_split]
 
-def depth_improved_function(ss, paragraph_split_treshold):
+def depth_improved_function(ss, paragraph_split_treshold=0.4):
     adj_sim_norm = calculate_adjacent_similarity(ss)
     x = []
     depth_norm = [1]
@@ -134,9 +131,9 @@ def depth_improved_function(ss, paragraph_split_treshold):
 def extract_sentances(X, sentence_percentage, depth_function, paragraph_split_treshold = 0.5):
     Um, Sm, Vt = np.linalg.svd(X)
     (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.95)
-    ss_norm = SS(Vt, Sm)
-    par_split = depth_function(ss_norm, paragraph_split_treshold)[1]
-    sim_score = np.sum(ss_norm, axis=1)
+    ss = SS(Vt, Sm)
+    par_split = depth_function(ss, paragraph_split_treshold)[1]
+    sim_score = np.sum(ss, axis=1)
     if(len(par_split) != 0):
         sorted_indexes = [np.argsort(sim_score[0:par_split[0]])[::-1]]
         for i in range(1, len(par_split)):

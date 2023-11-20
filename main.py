@@ -11,7 +11,7 @@ from rouge import Rouge
 
 rouge = Rouge()
 
-iterations = 1000
+iterations = 200
 num_of_texts = 40
 
 (sentences , sums) = get_sentances_and_sums_from_json("dataset.json")
@@ -30,9 +30,11 @@ average_rouge_2_r = np.zeros(8)
 average_rouge_l = np.zeros(8)
 average_rouge_l_p = np.zeros(8)
 average_rouge_l_r = np.zeros(8)
+old_par_split_treshold = 1
+new_par_split_treshold = 0.4
 for i in range(iterations):
-    if i % 10 == 0:
-        print(i)
+    if i % 5 == 0:
+        print(i,"*********************************")
     rand_indexes = random.sample(range(50), num_of_texts)
     rand_index_list.append(rand_indexes)
     sentences_concat = []
@@ -52,62 +54,74 @@ for i in range(iterations):
 
     gen_sums = []
 
-    extracted = extract_sentances(X_countvec, 1, depth_old, 0.4)
+    extracted = extract_sentances(X_countvec, 0.4, depth_old, old_par_split_treshold)
     sentences_extracted = [sentences_concat[j] for j in extracted]
     gen_sums.append(sentences_extracted)
 
-    extracted_improved = extract_sentances(X_countvec, 0.4, depth_improved_function, 0.4)
+    extracted_improved = extract_sentances(X_countvec, 0.4, depth_improved_function, new_par_split_treshold)
     sentences_extracted_improved = [sentences_concat[j] for j in extracted_improved]
     gen_sums.append(sentences_extracted_improved)
 
-    extracted_lem = extract_sentances(X_countvec_lem, 1, depth_old, 0.4)
+    extracted_lem = extract_sentances(X_countvec_lem, 0.4, depth_old, old_par_split_treshold)
     sentences_extracted_lem = [sentences_concat[j] for j in extracted_lem]
     gen_sums.append(sentences_extracted_lem)
 
-    extracted_improved_lem = extract_sentances(X_countvec_lem, 0.4, depth_improved_function, 0.4)
+    extracted_improved_lem = extract_sentances(X_countvec_lem, 0.4, depth_improved_function, new_par_split_treshold)
     sentences_extracted_improved_lem = [sentences_concat[j] for j in extracted_improved_lem]
     gen_sums.append(sentences_extracted_improved_lem)
 
-    extracted_tfidf = extract_sentances(X_tfidf, 1, depth_old, 0.4)
+    extracted_tfidf = extract_sentances(X_tfidf, 0.4, depth_old, old_par_split_treshold)
     sentences_extracted_tfidf = [sentences_concat[j] for j in extracted_tfidf]
     gen_sums.append(sentences_extracted_tfidf)
 
-    extracted_tfidf_improved = extract_sentances(X_tfidf, 0.4, depth_improved_function, 0.4)
+    extracted_tfidf_improved = extract_sentances(X_tfidf, 0.4, depth_improved_function,new_par_split_treshold)
     sentences_extracted_tfidf_improved = [sentences_concat[j] for j in extracted_tfidf_improved]
     gen_sums.append(sentences_extracted_tfidf_improved)
 
-    extracted_tfidf_lem = extract_sentances(X_tfidf_lem, 1, depth_old, 0.4)
+    extracted_tfidf_lem = extract_sentances(X_tfidf_lem, 0.4, depth_old, old_par_split_treshold)
     sentences_extracted_tfidf_lem = [sentences_concat[j] for j in extracted_tfidf_lem]
     gen_sums.append(sentences_extracted_tfidf_lem)
 
-    extracted_tfidf_improved_lem = extract_sentances(X_tfidf_lem, 0.4, depth_improved_function, 0.4)
+    extracted_tfidf_improved_lem = extract_sentances(X_tfidf_lem, 0.4, depth_improved_function, new_par_split_treshold)
     sentences_extracted_tfidf_improved_lem = [sentences_concat[j] for j in extracted_tfidf_improved_lem]
     gen_sums.append(sentences_extracted_tfidf_improved_lem)
     
     j = 0
     for sum in gen_sums:
-        scores = rouge.get_scores(sum, sums_concat, avg=True)
+        scores = rouge.get_scores(" ".join(sum), " ".join(sums_concat), avg=False)
+        if i %10 == 0:
+            print(scores)
+        rouge_1_scores_temp.append(scores[0]['rouge-1']['f'])
+        average_rouge_1[j] += scores[0]['rouge-1']['f']
+        average_rouge_1_p[j] += scores[0]['rouge-1']['p']
+        average_rouge_1_r[j] += scores[0]['rouge-1']['r']
 
-        rouge_1_scores_temp.append(scores['rouge-1']['f'])
-        average_rouge_1[j] += scores['rouge-1']['f']
-        average_rouge_1_p[j] += scores['rouge-1']['p']
-        average_rouge_1_r[j] += scores['rouge-1']['r']
+        rouge_2_scores_temp.append(scores[0]['rouge-2']['f'])
+        average_rouge_2[j] += scores[0]['rouge-2']['f']
+        average_rouge_2_p[j] += scores[0]['rouge-2']['p']
+        average_rouge_2_r[j] += scores[0]['rouge-2']['r']
 
-        rouge_2_scores_temp.append(scores['rouge-2']['f'])
-        average_rouge_2[j] += scores['rouge-2']['f']
-        average_rouge_2_p[j] += scores['rouge-2']['p']
-        average_rouge_2_r[j] += scores['rouge-2']['r']
-
-        rouge_l_scores_temp.append(scores['rouge-l']['f'])
-        average_rouge_l[j] += scores['rouge-l']['f']
-        average_rouge_l_p[j] += scores['rouge-l']['p']
-        average_rouge_l_r[j] += scores['rouge-l']['r']
+        rouge_l_scores_temp.append(scores[0]['rouge-l']['f'])
+        average_rouge_l[j] += scores[0]['rouge-l']['f']
+        average_rouge_l_p[j] += scores[0]['rouge-l']['p']
+        average_rouge_l_r[j] += scores[0]['rouge-l']['r']
         j += 1
+    if i % 10 == 0:
+        print(average_rouge_1 /   (i+1))
+        print(average_rouge_1_p / (i+1))
+        print(average_rouge_1_r / (i+1))
+        print(average_rouge_2 /   (i+1))
+        print(average_rouge_2_p / (i+1))
+        print(average_rouge_2_r / (i+1))
+        print(average_rouge_l /   (i+1))
+        print(average_rouge_l_p / (i+1))
+        print(average_rouge_l_r / (i+1))
     rouge_1_scores.append(rouge_1_scores_temp)
     rouge_2_scores.append(rouge_2_scores_temp)
     rouge_l_scores.append(rouge_l_scores_temp)
 
-file_path = "results.txt"
+
+file_path = "results_40texts_200_alf1-04.txt"
 
 rand_index_list = np.array(rand_index_list)
 rouge_1_scores = np.array(rouge_1_scores)
