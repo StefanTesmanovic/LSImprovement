@@ -1,0 +1,1220 @@
+[
+{
+"source": [
+"Inkrementalno učenje klasa podrazumeva postepeno učenje razreda u serijama primera istog razreda.",
+"Ovo krši pretpostavke koje leže u osnovi metoda za obuku standardnih dubokih neuronskih mreža, i dovesti će do patološkog zaboravljanja.",
+"Možda je najbolja metoda za inkrementalno učenje razreda iCaRL, ali zahteva skladištenje primera za obuku za svaki razred, što ga čini izazovnim za skaliranje.",
+"Ovde predlažemo FearNet za inkrementalno učenje razreda.",
+"FearNet je generativni model koji ne čuva prethodne primere, što ga čini efikasnim sa stanovišta memorije.",
+"FearNet koristi dualni sistem memorije inspirisan mozgom, u kojem se novi sećaji konsoliduju iz mreže za nedavne sećaje inspirisane kompleksom hipokampusa sisavaca ka mreži za dugoročno skladištenje inspirisanom medijalnim prefrontalnim korteksom.",
+"Konsolidacija sećanja je inspirisana mehanizmima koji se javljaju tokom sna.",
+"FearNet takođe koristi modul inspirisan bazolateralnim amigdalom za određivanje koji sistem memorije koristiti za povratak.",
+"FearNet postiže vrhunske rezultate u inkrementalnom učenju razreda na slikama (CIFAR-100, CUB-200) i klasifikaciji zvuka (AudioSet) merilima."
+],
+"source_labels": [0, 0, 0, 0, 1, 0, 0, 0, 0],
+"rouge_scores": [0.285714281044898, 0.18181817681818196, 0.22727272227272738, 0.26666666275555556, 0.3243243195032871, 0.2799999950720001, 0.2499999957031251, 0.2926829218560381, 0.1999999950500001],
+"paper_id": "SJ1Xmf-Rb",
+"target": [
+"FearNet je efikasna neuronska mreža inspirisana procesom formiranja sećanja u mozgu sisavaca, sposobna za inkrementalno učenje razreda bez patološkog zaboravljanja.",
+"Ovaj rad predstavlja nov rešenje za problem inkrementalne klasifikacije zasnovano na dualnom sistemu memorije."
+],
+"title": "FearNet: Model Inspirisan Mozgom za Inkrementalno Učenje"
+},
+{"source": [
+"Učenje iz više pogleda može pružiti samo-superviziju kada su dostupni različiti pogledi istih podataka.",
+"Hipoteza o distribuciji pruža još jedan oblik korisne samo-supervizije iz susednih rečenica koje su obilne u velikim neoznačenim korpusima.",
+"Motivisani asimetrijom u dve hemisfere ljudskog mozga, kao i posmatranjem da različite arhitekture učenja tendiraju da ističu različite aspekte značenja rečenica, predstavljamo dva višepogledna okvira za učenje reprezentacija rečenica na nesamostalan način.",
+"Jedan okvir koristi generativni cilj, a drugi diskriminativni.",
+"U oba okvira, krajnja reprezentacija je ansambl dva pogleda, u kojem jedan pogled kodira ulaznu rečenicu sa Rekurentnom Neuronskom Mrežom (RNN), dok drugi pogled kodira linearnim modelom.",
+"Pokazujemo da, nakon učenja, vektori proizvedeni pomoću naših višepoglednih okvira pružaju poboljšane reprezentacije u odnosu na njihove reprezentacije naučene iz jednog pogleda, i da kombinacija različitih pogleda pruža poboljšanje reprezentacije u odnosu na svaki pojedinačni pogled i pokazuje solidnu prenosivost na standardnim zadacima nizvodno."
+],
+"source_labels": [1, 0, 0, 0, 0, 0],
+"rouge_scores": [0.19999999580000008, 0.0, 0.1578947341828255, 0.0, 0.10810810539079627, 0.0],
+"paper_id": "S1xzyhR9Y7",
+"target": [
+"Učenje iz više pogleda poboljšava učenje reprezentacija rečenica bez supervizije.",
+"Pristup koristi različite, dopunske enkodere za ulaznu rečenicu i maksimizaciju saglasnosti.",
+"Rad predstavlja višepogledni okvir za poboljšanje reprezentacije rečenica u NLP zadacima korišćenjem generativne i diskriminativne arhitekture ciljeva.",
+"Ovaj rad pokazuje da su višepogledni okviri efikasniji od korišćenja pojedinačnih enkodera za učenje reprezentacija rečenica."
+],
+"title": "Poboljšanje Reprzentacija Rečenica Pomoću Višepoglednih Okvira"
+},
+{
+"source": [
+"Prikazujemo kako se diskretni objekti mogu naučiti na nesamostalan način iz piksela i kako izvoditi ojačano učenje koristeći ovu reprezentaciju objekata.",
+"Preciznije, konstruišemo diferencijabilno preslikavanje slike u diskretnu tabelarnu listu objekata, gde svaki objekat sadrži diferencijabilnu poziciju, vektora karakteristika i skalarnu vrednost prisustva koja omogućava učenje reprezentacije korišćenjem mehanizma pažnje.",
+"Primena ovog preslikavanja na Atari igre, zajedno sa arhitekturom tipa interakcionih mreža za izračunavanje količina iz objekata, omogućava konstrukciju agenata koji mogu igrati Atari igre koristeći objekte naučene na nesamostalan način.",
+"Tokom obuke, mnogi prirodni objekti se pojavljuju, kao što su lopta i rekete u Pongu, i podmornica i ribe u Seaquestu.",
+"Ovo predstavlja prvog agenta za ojačano učenje za Atari sa interpretabilnom reprezentacijom objekata i otvara put za agente koji mogu sprovoditi istraživanje i generalizaciju baziranu na objektima."
+],
+"source_labels": [1, 0, 0, 0, 0],
+"rouge_scores": [0.9787233992575827, 0.3333333286055556, 0.41509433470986123, 0.14634145848899482, 0.25531914393843375],
+"paper_id": "HJDUjKeA-",
+"target": [
+"Prikazujemo kako se diskretni objekti mogu naučiti na nesamostalan način iz piksela i kako izvoditi ojačano učenje koristeći ovu reprezentaciju objekata.",
+"Metod za učenje reprezentacija objekata iz piksela za ojačano učenje.",
+"Rad predlaže neuronsku arhitekturu za mapiranje video zapisa na diskretnu kolekciju objekata, bez ljudskih anotacija, koristeći nesamostalan gubitak rekonstrukcije piksela."
+],
+"title": "Učenje objekata iz piksela"
+},
+{
+"source": [
+"Najnovija poboljšanja u vizuelnom prepoznavanju potiču od uključivanja mehanizama pažnje u duboke konvolutivne mreže (DCN).",
+"Pošto su ove mreže optimizovane za prepoznavanje objekata, uče gde da usmere pažnju koristeći samo slabu formu nadzora dobijenu iz oznaka klasa slika.",
+"Ovde demonstriramo korist korišćenja jačih nadzornih signala učenja DCN-ova kako bi usmeravali pažnju na regije slika koje ljudi smatraju važnim za prepoznavanje objekata.",
+"Prvo opisujemo eksperiment u stvarnom vremenu (ClickMe) velikog obima koji se koristi za dopunu ImageNet-a sa gotovo pola miliona ljudskih odozgo-nanad mapa pažnje.",
+"Korišćenjem ljudske psihofizike, potvrđujemo da su identifikovane odozgo-nanad karakteristike iz ClickMe-a dijagnostičnije od odozdo-nagore karakteristika salijentnosti za brzu kategorizaciju slika.",
+"Kao dokaz koncepta, proširujemo mrežu pažnje koja je trenutno najnaprednija i pokazujemo da dodavanje nadzora ClickMe-a značajno poboljšava njenu tačnost i daje vizuelne karakteristike koje su interpretabilnije i sličnije onima koje koriste ljudski posmatrači."
+],
+"source_labels": [0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.11764705384083066, 0.1463414586555623, 0.1999999952000001, 0.16666666172839517, 0.1052631530193908, 0.16326530172428166],
+"paper_id": "BJgLg3R9KQ",
+"target": [
+"Veliki skup podataka za obuku modela pažnje za prepoznavanje objekata dovodi do tačnijeg, interpretabilnijeg i ljudima sličnog prepoznavanja objekata.",
+"Argumentuje se da su najnovija poboljšanja u vizuelnom prepoznavanju proizašla iz upotrebe mehanizama vizuelne pažnje u dubokim konvolutivnim mrežama, koje uče gde da se fokusiraju kroz slab oblik nadzora zasnovan na oznakama klasa slika.",
+"Presents a new take on attention in which a large attention dataset is collected and used to train a NN in a supervised manner to exploit self-reported human attention.",
+"Ovaj rad predlaže novi pristup korišćenja informativnijih signala, posebno regija koje ljudi smatraju važnim na slikama, kako bi se poboljšale duboke konvolutivne neuronske mreže."
+],
+"title": "Učenje šta i gde da obrati pažnju"
+},
+{
+"source": [
+"U poslednjim godinama, duboke neuronske mreže su pokazale izuzetne performanse u mnogim zadacima mašinskog učenja.",
+"Međutim, istraživači su otkrili da su ovi najsavremeniji modeli podložni napadima putem zlonamjernih primera: legitimni primeri kojima su dodate male perturbacije koje su neprimetne za ljudske oči.",
+"Adverzalno treniranje, koje tokom procesa obuke dopunjuje obuku adverzalnim primerima, dobro je poznata odbrana za poboljšanje otpornosti modela protiv adverzalnih napada.",
+"Međutim, ovakva otpornost efikasna je samo za istu metodu napada korištenu za adverzalno treniranje.",
+"Madry et al. (2017) sugeriraju da efikasnost iterativnih adverzalnih napada sa više koraka, posebno metode projekcionog gradijentnog spusta (PGD), može se smatrati univerzalnim napadačem prvog reda i primena adverzalnog treniranja sa PGD omogućava otpornost protiv mnogih drugih napada prvog reda.",
+"Međutim, računarski trošak adverzalnog treniranja sa PGD i drugim adverzalnim primerima sa više koraka mnogo je veći nego kod adverzalnog treniranja sa jednostavnijim tehnikama napada.",
+"U ovom radu pokazujemo kako se jaki adverzalni primeri mogu generisati po ceni sličnoj kao kod dva prolaza metodom brzog gradijentnog znaka (FGSM), što omogućava odbranu protiv adverzalnih napada sa nivoom otpornosti uporedivim sa adverzalnim treniranjem sa adverzalnim primerima sa više koraka.",
+"Empirijski demonstriramo efikasnost predloženog dvokoraknog pristupa odbrani protiv različitih metoda napada i njegova poboljšanja u odnosu na postojeće strategije odbrane."
+],
+"source_labels": [0, 0, 1, 0, 0, 0, 0, 0],
+"rouge_scores": [0.0, 0.05882352484429102, 0.2702702658875092, 0.1481481432098767, 0.17021276215482128, 0.12121211658402223, 0.23076922721893492, 0.2666666618666667],
+"paper_id": "BklpOo09tQ",
+"target": [
+"Predložili smo vremenski efikasan metod odbrane protiv jednokratnih i iterativnih adverzalnih napada.",
+"Predlažemo novu, računarski efikasnu metodu nazvanu e2SAD koja generiše setove od dva obučna adverzalna primera za svaki čisti obučni primer.",
+"Rad uvodi dvokoraknu metodu odbrane od adverzalnih napada, za generisanje dva adverzalna primera po čistom primeru i njihovo uključivanje u stvarnu obuku radi postizanja otpornosti i tvrdi da može nadmašiti skuplje iterativne metode.",
+"Rad predstavlja dvokorakni pristup generisanju jakih adverzalnih primera po znatno manjoj ceni u poređenju sa nedavnim iterativnim adverzalnim napadima sa više koraka."
+],
+"title": "Efikasna dvokorakna adverzalna odbrana za duboke neuronske mreže"
+},
+{
+"source": [
+"U poslednjih nekoliko godina predloženo je nekoliko različitih arhitektura dubokog učenja koje koriste nisku karaktera kao sirovi ulazni signal i automatski izvode karakteristike za klasifikaciju teksta.",
+"Malobrojne studije dostupne su koje upoređuju efikasnost ovih pristupa za klasifikaciju karaktera na osnovu teksta međusobno.",
+"U ovom radu vršimo takvo empirijsko poređenje za važan problem kibernetičke sigurnosti - detekciju DGA: klasifikaciju domenskih imena kao benignih ili generisanih od strane malvera (tj. pomoću algoritma za generisanje domenskih imena).",
+"Obuka i evaluacija na skupu podataka sa 2 miliona domenskih imena pokazuje da postoji iznenađujuće mala razlika između različitih arhitektura dubokih konvolutivnih mreža (CNN) i rekurentnih neuronskih mreža (RNN) u pogledu tačnosti, što sugeriše na preferenciju za jednostavnije arhitekture, budući da se brže obučavaju i manje su podložne prepravljanju."
+],
+"source_labels": [0, 0, 0, 1],
+"rouge_scores": [0.1818181770764464, 0.11111110612654343, 0.1960784269281047, 0.34920634526581007],
+"paper_id": "BJLmN8xRW",
+"target": [
+"Poređenje pet arhitektura dubokih neuronskih mreža za detekciju zlonamjernih domenskih imena pokazuje iznenađujuće malu razliku.",
+"Autori predlažu korišćenje pet dubokih arhitektura za kibernetički zadatak detekcije algoritma za generisanje domenskih imena.",
+"Primenjuje nekoliko NN arhitektura za klasifikaciju URL-ova između benignih i zlonamjernih URL-ova.",
+"Ovaj rad predlaže automatsko prepoznavanje domenskih imena kao zlonamjernih ili benignih putem dubokih mreža obučenih za direktnu klasifikaciju niskog karaktera."
+],
+"title": "Detekcija domenskih imena na osnovu nivoa karaktera"
+},
+{
+"source": [
+"Prepoznavanje odnosa između dva teksta važan je aspekt razumevanja prirodnog jezika (NLU), i različiti modeli neuronskih mreža su predloženi za rešavanje NLU zadataka.",
+"Nažalost, nedavni radovi su pokazali da skupovi podataka na kojima su obučeni ovi modeli često sadrže pristrasnosti koje omogućavaju modelima da postignu značajne performanse, možda čak i bez učenja odnosa između dva teksta.",
+"Predlažemo okvir za izgradnju robustnih modela korišćenjem adverzarnog učenja kako bismo podstakli modele da nauče skrivene, bepristrasne reprezentacije.",
+"Testiramo naš pristup u scenariju prirodnog jezičkog zaključivanja (NLI) i pokazujemo da naši modeli obučeni adverzijalno uče robustne reprezentacije koje zanemaruju poznate pristrasnosti specifične za skup podataka.",
+"Naši eksperimenti pokazuju da su naši modeli otporniji na nove NLI skupove podataka."
+],
+"source_labels": [0, 0, 0, 0, 1],
+"rouge_scores": [0.0930232512709575, 0.23809523350340142, 0.24242423746556482, 0.2631578899584488, 0.285714280739796],
+"paper_id": "rkMlSnAqYX",
+"target": [
+"Metodi adverznog učenja podstiču NLI modele da zanemare pristrasnosti specifične za skup podataka i pomažu modelima da prelaze između skupova podataka.",
+"Rad predlaže adverzarni okvir za ublažavanje artefakata u anotacijama u podacima za zaključivanje prirodnog jezika",
+"Ovaj rad predstavlja metod za uklanjanje pristrasnosti modela za tekstualno zaključivanje putem cilja adverznog treniranja."
+],
+"title": "Ublažavanje pristrasnosti u zaključivanju prirodnog jezika korišćenjem adverznog učenja"
+},
+{
+"source": [
+"Izucavamo problem učenja reprezentacija entiteta i veza u grafovima znanja za predviđanje nedostajućih veza.",
+"Uspeh takvog zadatka u velikoj meri zavisi od sposobnosti modeliranja i zaključivanja o obrascima veza (ili između veza).",
+"U ovom radu predstavljamo novi pristup za ugnježdenje grafova znanja nazvan RotatE, koji je sposoban za modeliranje i zaključivanje različitih obrazaca veza, uključujući simetriju/asimetriju, inverziju i kompoziciju.",
+"Konkretno, model RotatE definiše svaku vezu kao rotaciju od izvornog entiteta do ciljnog entiteta u kompleksnom vektorskom prostoru.",
+"Pored toga, predlažemo novu tehniku negativnog uzorkovanja samo-sebe u adverzarnom maniru za efikasno i efektivno obučavanje modela RotatE.",
+"Eksperimentalni rezultati na više benchmark grafova znanja pokazuju da predloženi model RotatE nije samo skalabilan, već takođe može da zaključuje i modelira različite obrasce veza i značajno nadmašuje postojeće modele najnovijih dostignuća za predviđanje veza."
+],
+"source_labels": [0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.1599999956480001, 0.0, 0.3333333298765432, 0.0, 0.07692307266272212, 0.1428571397732427],
+"paper_id": "HkgEQnRqYQ",
+"target": [
+"Novi najsavremeniji pristup za ugnježdenje grafova znanja.",
+"Presents a neural link prediction scoring function that can infer symmetry, anti-symmetry, inversion and composition patterns of relations in a knowledge base.",
+"Ovaj rad predlaže pristup ugnježdenju grafova znanja modeliranjem veza kao rotacija u kompleksnom vektorskom prostoru.",
+"Predlaže metod za ugnježdenje grafova koji se koristi za predviđanje veza."
+],
+"title": "RotatE: Ugnježdenje grafova znanja rotacijom veza u kompleksnom prostoru"
+},
+{
+"source": [
+"Algoritmi dubokog učenja poznato su ranjivi na adverzne perturbacije u različitim zadacima kao što je klasifikacija slika.",
+"Ovaj problem je rešen korišćenjem nekoliko metoda za otkrivanje i odbacivanje određenih vrsta napada.",
+"Međutim, obuka i manipulacija mrežama prema određenim obranbenim šemama povećava računarsku složenost algoritama za učenje.",
+"U ovom radu predlažemo jednostavan, ali efikasan metod za poboljšanje otpornosti konvolutivnih neuronskih mreža (CNN) na adverzne napade korišćenjem adaptivnih konvolucioni jezgri koje zavise od podataka.",
+"U tu svrhu, predlažemo novu vrstu HyperNetwork kako bismo koristili statističke osobine ulaznih podataka i karakteristika za izračunavanje statističkih adaptivnih mapa.",
+"Zatim, filtriramo konvolucijske težine CNN-ova pomoću naučenih statističkih mapa kako bismo izračunali dinamičke jezgre.",
+"Na taj način, težine i jezgre se zajedno optimizuju za učenje modela klasifikacije slika otpornih na adverzne napade bez upotrebe dodatnih algoritama za otkrivanje i odbacivanje ciljanih napada.",
+"Empirijski dokazujemo da predloženi metod omogućava CNN-ovima da se spontano brane od različitih vrsta napada, kao što su napadi generisani Gausovim šumom, metodom brzih gradijentnih znakova (Goodfellow et al., 2014) i crni-boks napad (Narodytska & Kasiviswanathan, 2016)."
+],
+"source_labels": [0, 0, 0, 0, 0, 0, 0, 1, 0],
+"rouge_scores": [0.06451612416233128, 0.06666666175555591, 0.1333333284222224, 0.14999999561250013, 0.05405404949598286, 0.0689655122948874, 0.071428566454082, 0.15999999500800016, 0.14814814449245553],
+"paper_id": "rkeDJ04Mf",
+"target": [
+"Modifikovali smo CNN koristeći HyperNetworks i primetili bolju otpornost na adverzne primere.",
+"Poboljšanje otpornosti i pouzdanosti dubokih konvolutivnih neuronskih mreža korišćenjem konvolucionih jezgri koje zavise od podataka"
+],
+"title": "HyperNetworks sa statističkim filtriranjem za odbranu od adverznih primera"
+},
+{
+"source": [
+"Prilagođavanje dubokih mreža novim konceptima na osnovu nekoliko primera je izazovno, zbog visokih računarskih zahteva standardnih postupaka fino podešavanja.",
+"Većina radova o učenju na osnovu malog broja primera fokusirala se na jednostavne tehnike učenja za prilagodljivost, kao što su najbliži susedi ili gradijentno spuštanje.",
+"Ipak, literatura iz mašinskog učenja sadrži mnoge metode koje veoma efikasno uče modele koji nisu duboki.",
+"U ovom radu predlažemo korišćenje ovih brzo konvergentnih metoda kao glavnog mehanizma prilagodljivosti za učenje na osnovu malog broja primera.",
+"Osnovna ideja je da se duboko učenje nauči koristiti standardne alate mašinskog učenja, kao što su ridge regresija, kao deo sopstvenog internog modela, omogućavajući mu brzu prilagodbu novim podacima.",
+"Ovo zahteva propagiranje grešaka kroz korake rešavača.",
+"Iako bi inače trošak matematičkih operacija uključenih u ovakav proces bio značajan, korišćenjem Woodbury identiteta možemo da iskoristimo mali broj primera u našu korist.",
+"Predlažemo kako zatvorene tako i iterativne rešavače, bazirane na komponentama ridge regresije i logističke regresije.",
+"Naši metodi predstavljaju jednostavan i nov pristup problemu učenja na osnovu malog broja primera i postižu performanse konkurentske ili bolje od najnovijih dostignuća na tri benchmark skupa podataka."
+],
+"source_labels": [0, 0, 0, 0, 0, 0, 0, 1, 0],
+"rouge_scores": [0.1199999950720002, 0.20833332847222233, 0.17777777307654333, 0.24999999513888896, 0.16949152043665627, 0.1621621584806429, 0.17241378810939373, 0.28571428126984133, 0.2641509384122464],
+"paper_id": "HyxnZh0ct7",
+"target": [
+"Predlažemo meta-učenje za klasifikaciju na osnovu malog broja primera koje postiže snažne performanse visokom brzinom tako što propagira greške kroz rešavače brze konvergencije, kao što su ridge regresija ili logistička regresija.",
+"Ovaj rad predlaže algoritam za meta-učenje koji se svodi na fiksiranje karakteristika (tj. sve skrivene slojeve duboke NN) i tretiranje svakog zadatka kao da ima svoj sopstveni završni sloj koji može biti ridge regresija ili logistička regresija.",
+"Ovaj rad predlaže pristup meta-učenju za problem klasifikacije na osnovu malog broja primera, koristeći metod parametrizacije modela za svaki zadatak putem rešavača u zatvorenoj formi."
+],
+"title": "Meta-učenje sa diferencijabilnim rešavačima u zatvorenoj formi"
+},
+{
+"source": [
+"Iako mnogi radovi o aktivnom učenju pretpostavljaju da učenik može jednostavno zatražiti oznaku i dobiti je, stvarno označavanje često predstavlja nesklad između oblika oznake (na primer, jedne od mnogih klasa) i oblika napomene (obično binarnog povratnog informisanja da/ne).",
+"Da bismo označili korpus primera za višeklasnu klasifikaciju, možda ćemo morati postaviti više pitanja da/ne, iskoristiti hijerarhiju oznaka ako je dostupna.",
+"Da bismo se bavili ovom realnijom postavkom, predlažemo aktivno učenje sa delimičnim povratnim informacijama (ALPF), gde učenik mora aktivno odabrati kako će oznakiti primer i koje binarno pitanje postaviti.",
+"Na svakom koraku, učenik bira primer i pita da li pripada izabranoj (moguće kompozitnoj) klasi.",
+"Svaki odgovor eliminiše neke klase, ostavljajući učenika sa delimičnom oznakom.",
+"Učenik može ili da postavi više pitanja o istom primeru (dok se tačna oznaka ne otkrije) ili odmah pređe na sledeći, ostavljajući prvi primer delimično označenim.",
+"Aktivno učenje sa delimičnim oznakama zahteva",
+"(i) strategiju uzorkovanja za izbor parova (primer, klasa), i",
+"(ii) učenje iz delimičnih oznaka između rundi.",
+"Eksperimenti na Tiny ImageNetu pokazuju da naš najefikasniji metod poboljšava preciznost klasifikacije top-1 za 26% (relativno) u poređenju sa i.i.d. osnovama i standardnim aktivnim učiteljima uz 30% budžeta za označavanje koji bi bio potreban (naivan pristup) za označavanje skupa podataka.",
+"Štaviše, ALPF-učitelji potpuno označavaju TinyImageNet uz 42% manje troškove.",
+"Iznenađujuće, primetili smo da uzimanje u obzir troškova označavanja po primeru može promeniti konvencionalnu mudrost da aktivni učitelji treba da traže oznake za teške primere."
+],
+"source_labels": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+"rouge_scores": [0.2191780772002253, 0.09836065104004323, 0.20895521897081765, 0.10714285278061242, 0.1199999963520001, 0.09374999517578149, 0.045454543099173676, 0.08333333003472235, 0.1333333307061729, 0.15789473184210542, 0.0, 0.1016949106693481],
+"paper_id": "HJfSEnRqKQ",
+"target": [
+"Prilažemo novi pristup obuci modela za mašinsko učenje od nule u hijerarhijskom postavljanju oznaka, tj. razmišljamo o tome kao dvosmernoj komunikaciji između ljudi i algoritama i proučavamo kako možemo i meriti i poboljšati efikasnost.",
+"Uvođenje nove postavke aktivnog učenja gde orakul nudi delimičnu ili slabu oznaku umesto traženja oznake određenog primera, što dovodi do jednostavnijeg prikupljanja informacija.",
+"Ovaj rad predlaže metod aktivnog učenja sa delimičnim povratnim informacijama koji prevazilazi postojeće osnove u ograničenom budžetu.",
+"Rad razmatra problem višeklasne klasifikacije u kojem se oznake grupišu u dat broj M podskupova koji sadrže sve pojedinačne oznake kao singletone."
+],
+"title": "Aktivno učenje sa delimičnim povratnim informacijama"
+},
+{
+"source": [
+"I pored svoje prevalencije, evklidski ugrađeni podaci su suštinski ograničeni u sposobnosti da uhvate latentne semantičke strukture, koje ne moraju da se pridržavaju evklidskih prostornih pretpostavki.",
+"Ovde razmatramo alternativu, koja ugrađuje podatke kao diskretne verovatnosne distribucije u Wasserstein prostoru, opremljenom optimalnim transportnim metrikom.",
+"Wasserstein prostori su mnogo veći i fleksibilniji od evklidskih prostora, u tome da mogu uspešno ugraditi širi spektar metričkih struktura.",
+"Predlažemo da iskoristimo ovu fleksibilnost učenjem ugrađivanja koje uhvata semantičke informacije u Wasserstein rastojanju između ugrađenih distribucija.",
+"Empirijski ispitujemo reprezentativne kapacitete takvih naučenih Wasserstein ugrađivanja, pokazujući da mogu ugraditi širok spektar kompleksnih metričkih struktura sa manjom distorzijom u odnosu na ekvivalentno evklidsko ugrađivanje.",
+"Takođe istražujemo primenu u ugrađivanju reči, pokazujući jedinstvenu prednost Wasserstein ugrađivanja: direktno možemo vizualizovati visokodimenzionalno ugrađivanje, budući da je verovatnosna distribucija u niskodimenzionom prostoru.",
+"Ovo eliminiše potrebu za tehnikama redukcije dimenzionalnosti kao što je t-SNE za vizualizaciju."
+],
+"source_labels": [0, 0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.15789473206371207, 0.1666666618055557, 0.21052631101108046, 0.2777777729166667, 0.2666666622222223, 0.09090908641528948, 0.07407406913580279],
+"paper_id": "rJg4J3CqFm",
+"target": [
+"Prikazujemo da su Wasserstein prostori dobri ciljevi za ugrađivanje podataka sa složenom semantičkom strukturom.",
+"Uči ugrađivanja u diskretnom prostoru verovatnoća, koristeći minimizirane, regularizovane verzije Wasserstein rastojanja.",
+"Rad opisuje novu metodu ugrađivanja koja ugrađuje podatke u prostor verovatnoća opremljen Wasserstein rastojanjem.",
+"Rad predlaže ugrađivanje podataka u niskodimenzionalne Wasserstein prostore, koji mogu preciznije uhvatiti osnovnu strukturu podataka."
+],
+"title": "Učenje ugrađivanja u entropijskim Wasserstein prostorima"
+},
+{
+"source": [
+"Klasterizacija skupova podataka visoke dimenzionalnosti je teška jer međusobne udaljenosti postaju manje informativne u visokodimenzionalnim prostorima.",
+"Predstavljamo algoritam za klasterizaciju koji izvodi nelinearno smanjenje dimenzionalnosti i klasterizaciju zajedno.",
+"Podaci se ugrađuju u prostor niže dimenzije pomoću dubokog autoenkodera.",
+"Autoenkoder se optimizuje kao deo procesa klasterizacije.",
+"Rezultirajuća mreža proizvodi klasterizirane podatke.",
+"Pristup koji je prikazan ne oslanja se na prethodno znanje o broju klastera u stvarnom skupu podataka.",
+"Zajedničko nelinearno smanjenje dimenzionalnosti i klasterizacija formulisanu su kao optimizacija globalnog kontinualnog cilja.",
+"Na taj način izbegavamo diskretne rekonfiguracije cilja koje karakterišu prethodne algoritme za klasterizaciju.",
+"Eksperimenti na skupovima podataka iz različitih domena pokazuju da predstavljeni algoritam nadmašuje najsavremenije šeme klasterizacije, uključujući nedavne metode koje koriste duboke mreže."
+],
+"source_labels": [0, 1, 0, 0, 0, 0, 0, 0, 0],
+"rouge_scores": [0.0, 0.6428571379591838, 0.14814814331961607, 0.0769230721893494, 0.0, 0.0, 0.5806451562955255, 0.20689654677764577, 0.16216215725346983],
+"paper_id": "SJzMATlAZ",
+"target": [
+"Algoritam za klasterizaciju koji izvodi zajedničko nelinearno smanjenje dimenzionalnosti i klasterizaciju optimizacijom globalnog kontinualnog cilja.",
+"Predstavlja algoritam za klasterizaciju tako što zajedno rešava duboki autoenkoder i klasterizaciju kao globalni kontinualni cilj, prikazujući bolje rezultate od najsavremenijih šema klasterizacije.",
+"Duboka kontinualna klasterizacija je metoda klasterizacije koja integriše cilj autoenkodera sa ciljem klasterizacije i trenira se koristeći SGD."
+],
+"title": "Duboka kontinualna klasterizacija"
+},
+{
+"source": [
+"Duboki konvolutivni neuronski mreži (CNN) se primenjuju u raznim aplikacijama, ali zahtevaju ogromne računarske resurse.",
+"Tehnike reza i Winograd konvolucija su dve tipične metode za smanjenje računske zahtevnosti CNN-a.",
+"Međutim, ne mogu se direktno kombinovati jer Winogradova transformacija popunjava retkost rezanja.",
+"Li i saradnici (2017) predlažu retku Winograd konvoluciju u kojoj se težine direktno režu u Winograd domenu, ali ova tehnika nije vrlo praktična jer zahteva niske stope učenja i stoga značajno duže vreme obuke u Winograd domenu.",
+"Osim toga, Liu i saradnici (2018) premještaju ReLU funkciju u Winograd domen, što može pomoći povećanju retkosti težina, ali zahteva promene u strukturi mreže.",
+"Da bismo postigli visoku retkost težina u Winograd domenu bez promene strukture mreže, predlažemo novu metodu reza, prostorni Winograd rez.",
+"U prvom koraku, težine u prostornom domenu se režu na strukturiran način, što efikasno prenosi retkost u prostornom domenu u Winograd domen i izbegava obuku u Winograd domenu.",
+"Za sledeći korak, takođe vršimo rezanje i ponovnu obuku direktno u Winograd domenu, ali predlažemo upotrebu matrice faktora važnosti za prilagođavanje važnosti težina i gradijenata težina.",
+"Ova prilagođavanja omogućavaju efikasnu obuku prerezane mreže u Winograd domenu bez promene strukture mreže.",
+"Za tri modela na skupovima podataka CIFAR-10, CIFAR-100 i ImageNet, naša predložena metoda može postići retkost u Winograd domenu od 63%, 50% i 74%, redom."
+],
+"source_labels": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+"rouge_scores": [0.09999999531250023, 0.1025640979618674, 0.1463414586555623, 0.16393442139209904, 0.24489795418575602, 0.5714285666099773, 0.20833332834201398, 0.19999999500000015, 0.29999999531250005, 0.1276595694884565],
+"paper_id": "SJzYdsAqY7",
+"target": [
+"Da bismo ubrzali računanje konvolutivnih neuronskih mreža, predlažemo novu tehniku reza u dva koraka koja postiže veću retkost težina u Winograd domenu bez promene strukture mreže.",
+"Predlaže okvir prostornog Winograd rezanja koji omogućava zadržavanje prerežanih težina iz prostornog domena u Winograd domenu i poboljšava retkost u Winograd domenu.",
+"Predlaže dve tehnike za rezanje konvolutivnih slojeva koje koriste Winograd algoritam"
+],
+"title": "Prostorni Winograd rez omogućava retku Winograd konvoluciju"
+},
+{
+"source": [
+"U problemima federativnog učenja, podaci su raspoređeni na različitim serverima i njihova razmena ili grupisanje često nije praktično ili je zabranjeno.",
+"Razvijamo bajesijanski neparametarski okvir za federativno učenje sa neuronskim mrežama.",
+"Pretpostavlja se da svaki serverski uređaj obučava lokalne težine neuronske mreže, koje se modeluju putem našeg okvira.",
+"Zatim razvijamo pristup inferenciji koji nam omogućava da sintetizujemo ekspresivniju globalnu mrežu bez dodatnog nadzora ili grupisanja podataka.",
+"Zatim demonstriramo efikasnost našeg pristupa na problemima federativnog učenja simuliranim iz dva popularna skupa podataka za klasifikaciju slika."
+],
+"source_labels": [0, 1, 0, 0, 0],
+"rouge_scores": [0.1333333285333335, 0.8333333283333335, 0.06896551239001224, 0.11764705425605555, 0.19354838235171706],
+"paper_id": "SygHGnRqK7",
+"target": [
+"Predlažemo bajesijanski neparametarski model za federativno učenje sa neuronskim mrežama.",
+"Koristi beta proces za federativno neuronsko uparivanje.",
+"U radu se razmatra federativno učenje neuronskih mreža, gde su podaci raspoređeni na više mašina i raspodela podataka je potencijalno nehomogena i neuravnotežena."
+],
+"title": "Verovatni federativni neuronski parovi"
+},
+{
+"source": [
+"Predstavljamo opštu metodu za obuku Markovljevih lanaca Monte Carlo, parametrizovanih dubokim neuronskim mrežama, koje brzo konvergiraju i mešaju se prema njihovoj ciljnoj distribuciji.",
+"Naša metoda generalizuje Hamiltonov Monte Carlo i trenira se da maksimizira očekivanu kvadriranu razdaljinu skokova, što je proxy za brzinu mešanja.",
+"Demonstriramo velika empirijska poboljšanja na kolekciji jednostavnih, ali izazovnih distribucija, postižući na primer poboljšanje od 106 puta u efikasnom broju uzoraka u jednom slučaju, i mešanje kada standardni HMC ne pravi merljiv napredak u drugom.",
+"Na kraju, prikazujemo kvantitativna i kvalitativna poboljšanja na stvarnom zadatku: modeliranju generativnih varijabli.",
+"Izvorni Python kod će biti dostupan kao otvoreni izvor zajedno sa finalnom verzijom rada."
+],
+"source_labels": [1, 0, 0, 0, 0],
+"rouge_scores": [0.34615384116124265, 0.12765956957899524, 0.03278688031174489, 0.048780483307555446, 0.10810810416362324],
+"paper_id": "B1n8LexRZ",
+"target": [
+"Opšta metoda za obuku izražajnih MCMC jezgara parametrizovanih dubokim neuronskim mrežama. Dajući ciljnu distribuciju p, naša metoda pruža brzom mešaocu sposobnost efikasnog istraživanja prostora stanja.",
+"Predlaže generalizovani HMC modifikacijom integratora leapfrog pomoću neuronskih mreža kako bi mešaoc brzo konvergirao i mešao se."
+],
+"title": "Opšteširenje Hamiltonovog Monte Carla pomoću neuronskih mreža"
+},
+{
+"source": [
+"Ovaj rad se bavi problemom evaluacije sistemima za učenje u domenima sa visokim zahtevima za bezbednost, kao što su autonomna vožnja, gde greške mogu imati katastrofalne posledice.",
+"Fokusiramo se na dva problema: pronalaženje scenarija kada naučeni agenti ne uspevaju i procenu verovatnoće njihovog neuspeha.",
+"Standardna metoda za evaluaciju agenata u oblasti obučavanja jačanja, Vanilla Monte Carlo, može potpuno propustiti neuspehe, što dovodi do implementacije nesigurnih agenata.",
+"Demonstriramo da je ovo problem za trenutne agente, gde čak i podudaranje računanja koje se koristi za obuku ponekad nije dovoljno za evaluaciju.",
+"Da bismo rešili ovu manu, koristimo se literaturom o proceni verovatnoće retkih događaja i predlažemo pristup evaluaciji putem adversarne evaluacije.",
+"Naš pristup se fokusira na evaluaciju u adversarno odabranim situacijama, dok i dalje pruža nepristrasne procene verovatnoće neuspeha.",
+"Glavna teškoća je u identifikaciji ovih adversarnih situacija - budući da su neuspesi retki, ima malo signala koji pokreće optimizaciju.",
+"Da bismo rešili ovaj problem, predlažemo pristup kontinuiranog učenja koji uči načine neuspeha kod povezanih, ali manje robusnih agenata.",
+"Naš pristup takođe omogućava ponovnu upotrebu već prikupljenih podataka za obuku agenta.",
+"Demonstriramo efikasnost adversarne evaluacije na dva standardna domena: upravljanje humanoidima i simulirana vožnja.",
+"Eksperimentalni rezultati pokazuju da naše metode mogu da pronađu katastrofalne neuspehe i procene stope neuspeha agenata više redova veličine brže nego standardne metode evaluacije, za nekoliko minuta do nekoliko sati umesto dana."
+],
+"source_labels": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.07999999503200031, 0.08888888408888915, 0.1199999950320002, 0.13043477775992457, 0.17391303862948973, 0.09302325114115761, 0.12765956957899524, 0.1777777729777779, 0.14999999561250013, 0.09302325114115761, 0.14285713786352058],
+"paper_id": "B1xhQhRcK7",
+"target": [
+"Pokazujemo da se retki, ali katastrofalni neuspesi mogu potpuno propustiti slučajnim testiranjem, što predstavlja problem za sigurnu primenu. Naš predloženi pristup za adversarno testiranje rešava ovaj problem.",
+"Predlaže se metoda koja uči prediktor verovatnoće neuspeha za naučenog agenta, što dovodi do predviđanja koji početni stanovi uzrokuju neuspeh sistema.",
+"Ovaj rad predlaže pristup upotrebe važećeg uzorkovanja za uzorkovanje slučajeva neuspeha za RL algoritme na osnovu funkcije naučene putem neuronske mreže na neuspesima koji se javljaju tokom obuke agenta",
+"Ovaj rad je predložio adversarni pristup identifikaciji katastrofalnih slučajeva neuspeha u obuci jačanja učenja."
+],
+"title": "Rigorozna evaluacija agenata: Adversarni pristup za otkrivanje katastrofalnih neuspeha"
+},
+{
+"source": [
+"Varijacioni autoenkoder (VAE) je popularna kombinacija dubokog modela sa latentnim varijablama i prateće varijacione tehnike učenja.",
+"Korišćenjem neuronske mreže za zaključivanje aproksimacije posteriora modela na latentnim varijablama, VAE efikasno parametrizuje donju granicu margine verovatnoće podataka koja se može direktno optimizovati putem gradijentnih metoda.",
+"Međutim, u praksi, obuka VAE često rezultira degenerisanim lokalnim optimumom poznatim kao posterior collapse gde model nauči da zanemari latentnu varijablu i aproksimirajući posterior kopira prior.",
+"U ovom radu, istražujemo posterior collapse iz perspektive dinamike obuke.",
+"Uočavamo da tokom početnih faza obuke, neuronska mreža za zaključivanje ne uspeva da aproksimira pravi posterior modela, koji je pokretna meta.",
+"Kao rezultat toga, model je podstaknut da zanemari latentno kodiranje i dolazi do posterior collapse.",
+"Na osnovu ovog uvida, predlažemo izuzetno jednostavnu modifikaciju obuke VAE-a kako bismo smanjili kašnjenje zaključivanja: zavisno o trenutnoj međusobnoj informaciji između latentne varijable i opservacije modela, agresivno optimizujemo neuronsku mrežu za zaključivanje pre svakog ažuriranja modela.",
+"Iako ne uvodimo nove komponente modela niti značajnu složenost u odnosu na osnovni VAE, naš pristup može izbeći problem collapse koji je mučio veliki broj prethodnih radova.",
+"Empirijski, naš pristup prevazilazi snažne autoregresivne osnove na testovima sa tekstom i slikama u pogledu verodostojnosti na held-out podacima, i takmiči se sa složenijim tehnikama za izbegavanje collapse dok je značajno brži."
+],
+"source_labels": [0, 0, 0, 0, 0, 0, 1, 0, 0],
+"rouge_scores": [0.12244897506039165, 0.19354838210197725, 0.2622950769793067, 0.1777777736691359, 0.22222221739369008, 0.25531914459031246, 0.3333333283379248, 0.19354838210197725, 0.16129031758584825],
+"paper_id": "rylDfnCqF7",
+"target": [
+"Da bismo se pozabavili posterior collapse u VAE-ima, predlažemo novu, ali jednostavnu proceduru obuke koja agresivno optimizuje neuronsku mrežu za zaključivanje sa više ažuriranja. Ova nova procedura obuke smanjuje collapse i dovodi do boljeg VAE modela.",
+"Istražuje posterior collapse fenomen, pokazujući da povećana obuka neuronske mreže za zaključivanje može smanjiti problem i dovesti do boljih optimuma.",
+"Autori predlažu promenu procedure obuke VAE-a kao jedino rešenje za posterior collapse, ne dirajući model i ciljnu funkciju."
+],
+"title": "Zakasnjenje neuronskih mreža za zakljucivanje i posterior collapse u varijacionim autoencoderima"
+},
+{
+"source": [
+"Online zdravstvene usluge mogu obezbediti opštem javnosti pristup medicinskim saznanjima i smanjiti troškove pristupa informacijama kako za pojedince tako i za društva.",
+"Da bi se promovisale ove prednosti, želi se efikasno proširiti obim visokokvalitetnih a ipak novih relacijskih parova medicinskih entiteta koji inkorporiraju bogata medicinska saznanja u strukturiranom formiranju.",
+"Da bismo ostvarili ovaj cilj, predstavljamo generativni model nazvan Conditional Relationship Variational Autoencoder (CRVAE), koji može otkriti značajne i nove relacijske parove medicinskih entiteta bez potrebe za dodatnim spoljnim saznanjima.",
+"Umesto diskriminatornog utvrđivanja veze između dva data medicinska entiteta u korpusu slobodnog teksta, mi direktno modeliramo i razumemo medicinske veze iz raznovrsno izraženih medicinskih parova entiteta.",
+"Predloženi model uvodi kapacitet generativnog modeliranja varijacionog autoenkodera na parovima entiteta i ima sposobnost da otkrije nove relacijske medicinske parove entiteta isključivo na osnovu postojećih parova entiteta.",
+"Osim parova entiteta, dobijene su i predstave entiteta unapređene relacijama kao još jedna privlačna prednost predložene metode.",
+"Kvantitativna i kvalitativna evaluacija na stvarnim medicinskim skupovima podataka pokazuje efikasnost predložene metode u generisanju relacijskih medicinskih parova entiteta koji su značajni i novi."
+],
+"source_labels": [0, 0, 1, 0, 0, 0, 0],
+"rouge_scores": [0.15999999507200013, 0.24999999500000009, 0.3999999950222222, 0.25925925426611807, 0.2962962913031551, 0.18604650708491086, 0.2692307642603551],
+"paper_id": "BJhxcGZCW",
+"target": [
+"Generisano otkrivanje značajnih i novih parova entiteta sa određenim medicinskim odnosom, putem čistog učenja na osnovu postojećih značajnih parova entiteta, bez potrebe za dodatnim tekstualnim korpusom za diskriminativno izdvajanje.",
+"Predstavlja varijacioni autoenkoder za generisanje parova entiteta uz određeni odnos u medicinskom okruženju.",
+"U medicinskom kontekstu, ovaj rad opisuje klasičan problem kompletiranja baze znanja samo na osnovu struktuiranih podataka."
+],
+"title": "Generativno Otkrivanje Relacionih Parova Medicinskih Entiteta"
+},
+{
+"source": [
+"Iako varijacioni autoenkoderi (VAE) predstavljaju široko utemeljen duboki generativni model, mnogi aspekti osnovne energetske funkcije ostaju slabo razumljeni.",
+"Posebno se veruje da Gauss-encoder/decoder pretpostavke smanjuju efikasnost VAE u generisanju realističkih uzoraka.",
+"U tom smislu, mi rigorozno analiziramo VAE ciljni zadatak, razlikujući situacije u kojima je ovo verovanje istinito i situacije u kojima to nije istina.",
+"Zatim koristimo odgovarajuće uvide da razvijemo jednostavan VAE dodatak koji ne zahteva dodatne hiperparametre ili osetljivo podešavanje.",
+"Kvantitativno, ovaj predlog proizvodi oštre uzorke i stabilne FID ocene koje su zapravo konkurentske različitim GAN modelima, uz zadržavanje poželjnih atributa originalne VAE arhitekture."
+],
+"source_labels": [0, 0, 0, 1, 0, 0],
+"rouge_scores": [0.10810810319941586, 0.11428570932244919, 0.23529411266435996, 0.33333332839506175, 0.17777777319506186, 0.0],
+"paper_id": "B1e0X3C9tQ",
+"target": [
+"Pažljivo analiziramo ciljni zadatak VAE-a i izvodimo nove zaključke koji vode ka jednostavnim unapređenjima.",
+"Predlažemo dvostepeni VAE metod za generisanje visokokvalitetnih uzoraka i izbegavanje zamućenosti.",
+"Ovaj rad analizira Gauss-VAE.",
+"Rad pruža niz teorijskih rezultata o običnim varijacionim autoenkoderima sa Gausovom raspodelom, koji se zatim koriste za izgradnju novog algoritma nazvanog 2 stage VAEs."
+],
+"title": "Dijagnostikovanje i Unapređivanje VAE Modela"
+},
+
+{
+"source": [
+"Predstavljamo jednostavan i brz algoritam za optimizaciju hiperparametara inspirisan tehnikama analize Booleovih funkcija.", "Fokusiramo se na visoko-dimenzioni režim gde je kanonički primer treniranje neuronske mreže sa velikim brojem hiperparametara.", "Algoritam - iterativna primena tehnika kompresovanja za ortogonalne polinome - zahteva samo uniformno uzorkovanje hiperparametara i stoga je lako paralelizovati.", "Eksperimenti za treniranje dubokih neuronskih mreža na Cifar-10 pokazuju da, u poređenju sa alatima najnovije tehnologije (npr. Hyperband i Spearmint), naš algoritam pronalazi značajno poboljšane rešenja, u nekim slučajevima bolje nego što je moguće postići ručnim podešavanjem.", "Što se tiče ukupnog vremena izvršavanja (tj. vremena potrebnog za uzorkovanje različitih postavki hiperparametara plus dodatno vreme računanja), mi smo najmanje jedan red veličine brži od Hyperband-a i Bayesian Optimization-a.", "Takođe nadmašujemo Random Search $8\times$.", "Naš metod je inspirisan provabilno efikasnim algoritmima za učenje stabala odlučivanja korišćenjem diskretne Furijeove transformacije.", "Dobijamo poboljšane granice složenosti uzorkovanja za učenje stabala odlučivanja dok se podudaraju sa najnovijim granicama vremena izvršavanja (polinomijalnim i kvazipolinomijalnim, redom)."],
+"source_labels": [0, 0, 1, 0, 0, 0, 0],
+"rouge_scores": [0.19999999535555565, 0.0, 0.22222221797839511, 0.08333332980034738, 0.04545454170454576, 0.17647058385813158, 0.06666666202222254],
+"paper_id": "H1zriGeCZ",
+"target": ["Algoritam za optimizaciju hiperparametara koristi analizu Booleovih funkcija.", "Fokusira se na visoko-dimenzioni režim gde se kao kanonički primer navodi treniranje neuronske mreže sa velikim brojem hiperparametara.", "Algoritam, koji se zasniva na iterativnoj primeni tehnika kompresovanja za ortogonalne polinome, zahteva samo uniformno uzorkovanje hiperparametara i lako je paralelizovati.", "Eksperimenti na treniranju dubokih neuronskih mreža na Cifar-10 skupu podataka pokazuju da, u poređenju sa alatima najnovije tehnologije (npr. Hyperband i Spearmint), naš algoritam pronalazi značajno poboljšana rešenja, u nekim slučajevima bolja nego što je moguće postići ručnim podešavanjem.", "U pogledu ukupnog vremena izvršavanja (tj. vremena potrebnog za uzorkovanje različitih postavki hiperparametara plus dodatno vreme računanja), naš algoritam je najmanje jedan red veličine brži od alatki Hyperband i Bayesian Optimization.", "Takođe, nadmašujemo Random Search $8\times$.", "Naš metod je inspirisan provabilno efikasnim algoritmima za učenje stabala odlučivanja korišćenjem diskretne Furijeove transformacije.", "Dobijamo poboljšane granice uzorkovanja za učenje stabala odlučivanja uz zadržavanje najnovijih granica vremena izvršavanja (polinomijalna i kvazipolinomijalna, redom)."]
+},
+{
+"source": [
+"Permutacije i podudaranja su osnovni gradivni elementi u raznim modelima sa skrivenim varijablama, jer nam omogućavaju da uskladimo, kanonizujemo, i sortiramo podatke.", "Učenje u takvim modelima je teško, međutim, jer je tačno marginalizovanje ovih kombinatornih objekata neizvodljivo.", "Kao odgovor na to, ovaj rad uvodi kolekciju novih metoda za end-to-end učenje u takvim modelima koje aproksimiraju diskretno maksimalno težinsko podudaranje pomoću kontinuiranog Sinkhorn operatora.", "Sinkhorn iteracija je privlačna jer funkcioniše kao jednostavan, lako implementiran analogon softmax operatora.", "Na osnovu toga, možemo definisati Gumbel-Sinkhorn metod, proširenje Gumbel-Softmax metoda (Jang et al. 2016, Maddison et al. 2016) na distribucije latentnih podudaranja.", "Demonstriramo efikasnost našeg metoda nadmašujući konkurentske osnove na nizu kvalitativno različitih zadataka: sortiranje brojeva, rešavanje slagalica i identifikaciju neuronskih signala kod crva."],
+"source_labels": [0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.19047618552154208, 0.0, 0.21739129949905492, 0.057142852179592266, 0.18604650669551123, 0.17021276114078782],
+"paper_id": "Byt3oJ-0W",
+"target": ["Nova metoda za zaključivanje permutacija putem gradijent-silaska, sa primenama na zaključivanje latentnih podudaranja i nadzirano učenje permutacija pomoću neuronskih mreža.", "Rad koristi konačnu aproksimaciju Sinkhorn operatora da opiše kako se može konstruisati neuronska mreža za učenje na osnovu permutacionih vrednosti trening podataka.", "Rad predlaže novi metod koji aproksimira diskretno maksimalno težinsko podudaranje za učenje latentnih permutacija."]
+},
+{
+"source": [
+"Nedavni rad u kvantizaciji mreže značajno je smanjio vreme i prostornu složenost zaključivanja neuronskih mreža, omogućavajući njihovu primenu na ugrađenim i mobilnim uređajima sa ograničenim računarskim i memorijskim resursima.",
+"Međutim, postojeće metode kvantizacije često predstavljaju sve težine i aktivacije istom preciznošću (brojem bitova).",
+"U ovom radu istražujemo novu dimenziju dizajn prostora: kvantizaciju različitih slojeva sa različitim brojem bitova.",
+"Formulišemo ovaj problem kao problem pretrage neuronske arhitekture i predstavljamo novi okvir za diferencijabilnu pretragu neuronske arhitekture (DNAS) kako bismo efikasno istražili njen eksponencijalni prostor pretrage koristeći optimizaciju zasnovanu na gradijentu.",
+"Eksperimenti pokazuju da prevazilazimo trenutno najbolje kompresovanje ResNet na CIFAR-10 i ImageNet.",
+"Naši kvantizovani modeli sa 21,1 puta manjom veličinom modela ili 103,9 puta manjom računarskom cenom i dalje mogu nadmašiti osnovne kvantizovane ili čak modele sa punom preciznošću."
+],
+"source_labels": [0, 0, 0, 1, 0, 0],
+"rouge_scores": [0.14999999580000012, 0.07407406913580279, 0.06896551239001224, 0.33333332888888895, 0.07999999500800031, 0.0],
+"paper_id": "BJGVX3CqYm",
+"target": [
+"Mešana precizna kvantizacija ConvNets putem diferencijabilne neuronske arhitekture za pretragu",
+"Autori predstavljaju novu metodu pretrage neuronske arhitekture koja bira preciznost kvantizacije težina na svakom sloju neuronske mreže i koristi je u kontekstu kompresije mreže.",
+"Rad predstavlja novi pristup u kvantizaciji mreže tako što kvantizuje različite slojeve sa različitim brojem bitova i uvodi novi okvir za diferencijabilnu pretragu neuronske arhitekture."
+],
+"title": "Mešana Precizna Kvantizacija ConvNets putem Diferencijabilne Neuronske Arhitekture za Pretragu"
+},
+{
+"source": [
+"Top-$k$ greška je česta mera performansi u mašinskom učenju i računskom vidu.",
+"U praksi, top-$k$ klasifikacija se obično vrši pomoću dubokih neuronskih mreža obučenih sa gubitkom unakrsne entropije.",
+"Teorijski rezultati doista sugeriraju da je unakrsna entropija optimalan cilj učenja za takav zadatak u granici beskrajnih podataka.",
+"Međutim, u kontekstu ograničenih i bučnih podataka, upotreba funkcije gubitka specifično dizajnirane za top-$k$ klasifikaciju može doneti značajna poboljšanja.\n",
+"Naši empirijski dokazi sugeriraju da funkcija gubitka mora biti glatka i imati gradijente koji nisu retki kako bi dobro radila sa dubokim neuronskim mrežama.",
+"Stoga predstavljamo familiju glatkih funkcija gubitka koje su prikladne za optimizaciju top-$k$ pomoću dubokog učenja.",
+"Široko korišćena unakrsna entropija je poseban slučaj naše familije.",
+"Evaluacija naših glatkih funkcija gubitka je izazovna sa računarske strane: naivni algoritam bi zahtevao $mathcal{O},(binom{n},{k},)$ operacija, gde je $n$ broj klasa.",
+"Zahvaljujući vezi sa polinomskom algebrom i pristupu deljenja i osvajanja, pružamo algoritam sa vremenskom složenošću $mathcal{O},(k n)$.",
+"Osim toga, predstavljamo novu aproksimaciju za brze i stabilne algoritme na GPU-ima sa jednostrukim brojem sa pokretnim zarezom.",
+"Upoređujemo performanse funkcije gubitka unakrsne entropije i naših funkcija gubitka zasnovanih na margini u različitim režimima buke i veličine podataka, za dominantni slučaj upotrebe $k=5$.",
+"Naše istraživanje otkriva da je naša funkcija gubitka otpornija na buku i preprilagođavanje u odnosu na unakrsnu entropiju."
+],
+"source_labels": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+"rouge_scores": [0.0, 0.0, 0.07142856767857161, 0.06249999658203144, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.06896551357907273, 0.0],
+"paper_id": "Hk5elxbRW",
+"target": [
+"Glatka Funkcija Gubitka za Minimizaciju Greške Top-k",
+"Predlaže se korišćenje gubitka top-k sa dubokim modelima kako bi se rešio problem konfuzije klasa sa sličnim klasama koje su prisutne ili odsutne u trening skupu podataka.",
+"Smiruje gubitke top-k.",
+"Ovaj rad uvodi glatku zamensku funkciju gubitka za top-k SVM, u svrhu priključivanja SVM-a na duboke neuronske mreže."
+],
+"title": "Glatke Funkcije Gubitka za Duboku Klasifikaciju Top-k"
+},
+
+{
+"source": [
+"Dizajniranje molekula sa željenim svojstvima je jedan od najvećih izazova u razvoju lekova, jer zahteva optimizaciju struktura hemijskih jedinjenja u odnosu na mnoga kompleksna svojstva.",
+"Da bismo unapredili proces dizajna jedinjenja, uvodimo Mol-CycleGAN - model zasnovan na CycleGAN-u koji generiše optimizovane spojeve sa hemijskim skeletom od interesa.",
+"Naime, naš model generiše strukturno sličan molekul sa optimizovanom vrednošću razmatranog svojstva, na osnovu datog molekula.",
+"Evaluiramo performanse modela na odabranim ciljevima optimizacije koji se odnose na strukturalna svojstva (prisustvo halogenih grupa, broj aromatskih prstenova) i na fizičko-hemijsko svojstvo (penalizovani logP).",
+"U zadatku optimizacije penalizovanog logP vrednosti molekula sličnih lekovima, naš model značajno prevazilazi prethodne rezultate."
+],
+"source_labels": [0, 1, 0, 0, 0],
+"rouge_scores": [0.23809523337868488, 0.36842104775623274, 0.17647058325259532, 0.28571428099773244, 0.2580645111342353],
+"paper_id": "BklKFo09YX",
+"target": [
+"Predstavljamo Mol-CycleGAN - novi generativni model za optimizaciju molekula kako bismo unapredili dizajn lekova.",
+"Rad predstavlja pristup optimizaciji molekularnih svojstava na osnovu primene CycleGAN-a na varijacione autoenkodere za molekule i koristi VAE specifične za domen nazvan Junction Tree VAE (JT-VAE).",
+"Ovaj rad koristi varijacione autoenkodere za učenje funkcije prevoda, iz skupa molekula bez zainteresovanog svojstva u skup molekula sa tim svojstvom."
+],
+"title": "Mol-CycleGAN - Generativni Model za Molekularnu Optimizaciju"
+},
+{
+"source": [
+"Prenos znanja je potencijalno rešenje za kompresiju modela.",
+"Ideja je da se mali studentski model usavrši kako bi imitirao cilj velikog učiteljskog modela, nakon čega studentski model može biti konkurentan učiteljskom.",
+"Većina prethodnih istraživanja fokusira se na prenos modela u zadatku klasifikacije, gde se predlažu različite arhitekture i inicijalizacije za studentski model.",
+"Međutim, samo zadatak klasifikacije nije dovoljan, a drugi srodni zadaci kao što su regresija i pretraga se jedva razmatraju.",
+"Da bismo rešili ovaj problem, u ovom radu uzimamo prepoznavanje lica kao tačku preokreta i predlažemo prenos modela sa prenosom znanja sa modela za klasifikaciju lica na poravnanje i verifikaciju.",
+"Izborom odgovarajućih inicijalizacija i ciljeva u prenosu znanja, prenos znanja može biti jednostavniji u zadacima koji nisu klasifikacija.",
+"Eksperimenti na skupovima podataka CelebA i CASIA-WebFace pokazuju da studentski model može biti konkurentan učiteljskom modelu u poravnanju i verifikaciji, i čak ga nadmašuje pod određenim stopama kompresije.",
+"Pored toga, kako bismo postigli jači prenos znanja, koristimo i uobičajenu tehniku inicijalizacije kako bismo poboljšali performanse prenosa znanja u klasifikaciji.",
+"Evaluacije na skupovima podataka CASIA-Webface i velikog MS-Celeb-1M pokazuju efikasnost ove jednostavne tehnike."
+],
+"source_labels": [0, 0, 0, 0, 1, 0, 0, 0, 0],
+"rouge_scores": [0.2068965474435197, 0.09756097061273078, 0.24390243402736475, 0.15384614884944134, 0.8085106334087823, 0.16666666172839517, 0.13043477769376202, 0.24999999500000009, 0.05882352456747445],
+"paper_id": "rJFOptp6Z",
+"target": [
+"Uzimamo prepoznavanje lica kao tačku preokreta i predstavljamo prenos modela sa prenosom znanja sa modela za klasifikaciju lica na poravnanje i verifikaciju",
+"Ovaj rad predlaže prenos klasifikatora sa modela za klasifikaciju lica na zadatak poravnanja i verifikacije.",
+"Manuskript predstavlja eksperimente u prenosu znanja sa modela za klasifikaciju lica na studentske modele za poravnanje i verifikaciju."
+],
+"title": "Prenos Modela sa Prenosom Znanja iz Klasifikacije Lica u Poravnanje i Verifikaciju"
+},
+{
+"source": [
+"RNN-ovi su se pokazali kao izvanredni modeli za sekvencijalne podatke, posebno za ponašanje korisnika na osnovu sesija.",
+"Upotreba RNN-ova pruža impresivne performanse u odnosu na klasične metode u preporukama zasnovanim na sesijama.",
+"U ovom radu uvodimo novu funkciju gubitka za rangiranje prilagođenu RNN-ovima u postavkama preporuka.",
+"Bolje performanse ove funkcije gubitka u odnosu na alternative, zajedno sa trikovima i poboljšanjima opisanim u ovom radu, omogućavaju ukupno poboljšanje od do 35% u pogledu MRR i Recall@20 u odnosu na prethodna RNN rešenja zasnovana na sesijama i do 51% u odnosu na klasične metode kolaborativnog filtriranja.",
+"Za razliku od poboljšanja zasnovanih na augmentaciji podataka, naša metoda ne povećava značajno vreme obuke."
+],
+"source_labels": [0, 1, 0, 0, 0],
+"rouge_scores": [0.18749999501953143, 0.20689654673008337, 0.12903225306971924, 0.18867924122463517, 0.0],
+"paper_id": "ryCM8zWRb",
+"target": [
+"Unapređenje preporuka zasnovanih na sesijama pomoću RNN-ova (GRU4Rec) za 35% uz korišćenje novih funkcija gubitka i uzorkovanja.",
+"Ovaj rad analizira postojeće funkcije gubitka za preporuke zasnovane na sesijama i predlaže dve nove funkcije gubitka koje dodaju ponderaciju postojećim funkcijama gubitka na osnovu rangiranja.",
+"Predstavlja modifikacije u odnosu na prethodne radove o preporukama zasnovanim na sesijama korišćenjem RNN-a, tako što težinske negativne primere meri njihovom 'relevancijom'.",
+"Ovaj rad raspravlja o problemima optimizacije funkcija gubitka u GRU4Rec, predlaže trikove za optimizaciju i sugeriše poboljšanu verziju."
+],
+"title": "Rekurzivne Neuralne Mreže sa Top-k Dobicima za Preporuke zasnovane na Sesijama"
+},
+{
+"source": [
+"U reprezentativnom doživotnom učenju agent ima za cilj da neprestano uči da rešava nove zadatke dok ažurira svoju reprezentaciju na osnovu prethodnih zadataka.",
+"Polazeći od pretpostavke da će budući zadaci biti povezani sa prethodnim zadacima, reprezentacije bi trebalo da se uče na takav način da uhvate zajedničku strukturu naučenih zadataka, omogućavajući istovremeno dovoljnu fleksibilnost agentu da se prilagodi novim aspektima novog zadatka.",
+"Razvijamo okvir za doživotno učenje u dubokim neuronskim mrežama koji se zasniva na opštim granicama, razvijenim unutar PAC-Bayes okvira.",
+"Učenje se vrši putem konstrukcije distribucije nad mrežama na osnovu dosad viđenih zadataka i njenom upotrebom za učenje novog zadatka.",
+"Na taj način, prethodno znanje se inkorporira postavljanjem zavisnog o istoriji priora za nove zadatke.",
+"Razvijamo algoritam zasnovan na gradijentima koji sprovodi ove ideje, zasnovan na minimiziranju funkcije cilja motivisane opštim granicama i demonstriramo njegovu efikasnost kroz numeričke primere."
+],
+"source_labels": [0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.26086956025519853, 0.26666666180555565, 0.3913043428638942, 0.32653060724698046, 0.16216215777940113, 0.19999999500000015],
+"paper_id": "rJUBryZ0W",
+"target": [
+"Razvijamo pristup doživotnom učenju za prenosno učenje zasnovan na PAC-Bayes teoriji, pri čemu se priori prilagođavaju kako se novi zadaci susreću, čime se olakšava učenje novih zadataka.",
+"Novi PAC-Bayesian rizični graničar koji služi kao funkcija cilja za višezadatkovno mašinsko učenje, i algoritam za minimiziranje pojednostavljene verzije te funkcije cilja.",
+"Proširuje postojeće PAC-Bayes granice na višezadatkovno učenje, kako bi omogućilo da se priori prilagode različitim zadacima."
+],
+"title": "Doživotno Učenje Podešavanjem Priora"
+},
+{
+"source": [
+"Algoritmi za optimizaciju obuke dubokih modela ne utiču samo na brzinu konvergencije i stabilnost procesa obuke, već su takođe visoko povezani sa generalizacionim performansama obučenih modela.",
+"Iako su adaptivni algoritmi, poput Adama i RMSprop-a, pokazali bolje performanse u optimizaciji u mnogim scenarijima u odnosu na stohastički gradijentni spust (SGD), često dovode do lošijih generalizacionih performansi u odnosu na SGD, kada se koriste za obuku dubokih neuronskih mreža (DNN).",
+"U ovom radu identifikujemo dva problema u vezi sa pravcem i veličinom koraka za ažuriranje vektora težina skrivenih jedinica, što može pogoršati generalizacione performanse Adama.",
+"Kao rešenje, predlažemo algoritam normalizovanog sačuvanja pravca Adama (ND-Adam), koji preciznije kontroliše pravac ažuriranja i veličinu koraka, čime premošćuje jaz u generalizaciji između Adama i SGD-a.",
+"Prateći sličan princip, dodatno poboljšavamo generalizacione performanse u zadacima klasifikacije putem regularizacije logita softmax-a.",
+"Povezivanjem jaza između SGD-a i Adama takođe rasvetljavamo zašto određeni algoritmi za optimizaciju bolje generalizuju od drugih."
+],
+"source_labels": [0, 0, 0, 1, 0, 0],
+"rouge_scores": [0.29268292207019636, 0.19230768804733736, 0.3333333286167801, 0.42857142385487534, 0.12121211621671278, 0.26315788986149585],
+"paper_id": "HJSA_e1AW",
+"target": [
+"Prilagođena verzija Adama za obuku DNN-a, koja premošćava jaz u generalizaciji između Adama i SGD-a.",
+"Predlaže varijantu algoritma optimizacije ADAM koja normalizuje težine svake skrivene jedinice pomoću batch normalizacije.",
+"Proširenje algoritma optimizacije Adama kako bi sačuvao pravac ažuriranja prilagođavajući stopu učenja za dolazne težine skrivene jedinice zajedno korišćenjem L2 norme vektora gradijenta."
+],
+"title": "Normalizovani Algoritam za Sačuvanje Pravca Adama"
+},
+{
+"source": [
+"Opcije u podršci ojačanog učenja omogućavaju agentima hijerarhijsko razlaganje zadatka na podzadatke, što može ubrzati učenje i planiranje.",
+"Međutim, autonomno učenje efikasnih skupova opcija i dalje je glavni izazov u ovom polju.",
+"U ovom radu fokusiramo se na nedavno uvedenu ideju korišćenja metoda za učenje reprezentacija kako bismo vodili proces otkrivanja opcija.",
+"Konkretno, posmatramo sopstvene opcije, opcije koje se dobijaju iz reprezentacija koje kodiraju difuzni protok informacija u okruženju.",
+"Proširujemo postojeće algoritme za otkrivanje sopstvenih opcija na postavke sa stohastičkim tranzicijama i u kojima nisu dostupne ručno izrađene karakteristike.",
+"Predlažemo algoritam koji otkriva sopstvene opcije dok uči nelinearne reprezentacije stanja iz sirovih piksela.",
+"Iskorištavamo nedavne uspehe u literaturi o dubokom ojačanom učenju i ekvivalencu između proto-vrednosti funkcija i reprezentacije naslednika.",
+"Koristimo tradicionalne tabelarne domene kako bismo dali intuiciju o našem pristupu i Atari 2600 igre kako bismo demonstrirali njegov potencijal."
+],
+"source_labels": [0, 0, 0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.17021276106835687, 0.23809523350340142, 0.21276595255771855, 0.22727272253099182, 0.2448979542357352, 0.23809523350340142, 0.1818181770764464, 0.1333333285333335],
+"paper_id": "Bk8ZcAxR-",
+"target": [
+"Prikazujemo kako možemo koristiti reprezentaciju naslednika za otkrivanje sopstvenih opcija u stohastičkim domenima, od sirovih piksela. Eigenopcije su opcije koje se uče da navigiraju latentnim dimenzijama naučene reprezentacije.",
+"Proširenje ideje sopstvenih opcija na domene sa stohastičkim tranzicijama i gde se karakteristike stanja uče.",
+"Prikazuje ekvivalencu između proto-vrednosti funkcija i reprezentacije naslednika i izvodi ideju sopstvenih opcija kao mehanizam u otkrivanju opcija.",
+"Rad je nastavak prethodnog rada Machado et al. (2017) koji pokazuje kako se proto-vrednosti funkcija mogu koristiti za definisanje opcija nazvanih sopstvene opcije."
+],
+"title": "Otkrivanje Eigenopcija putem Duboke Reprezentacije Naslednika"
+},
+{
+"source": [
+"Jedan način karakterizacije izražajnosti neuronske mreže sa linearnim delovima u obliku segmenta jeste broj linearnih regiona ili segmenata funkcije koja se modeluje.",
+"Primećen je značajan napredak u ovoj oblasti kroz donje i gornje granice maksimalnog broja linearnih regiona i postupak brojanja.",
+"Međutim, ove granice uzimaju u obzir samo dimenzije mreže, a tačno brojanje može potrajati nedopustivo dugo vreme, čime se čini nemogućim upoređivanje izražajnosti mreža.",
+"U ovom radu, aproksimiramo broj linearnih regiona određenih mreža sa ispravljačima (rectifier networks) pomoću algoritma za verovatnosne donje granice za skupove mešovitih celobrojnih linearnih skupova.",
+"Pored toga, predstavljamo strožu gornju granicu koja koristi koeficijente mreže.",
+"Testiramo oba pristupa na obučenim mrežama.",
+"Algoritam za verovatnosne donje granice je nekoliko redova veličine brži od tačnog brojanja, a vrednosti dostižu slične redove veličine, čime naš pristup postaje izvodljiva metoda za upoređivanje izražajnosti ovakvih mreža.",
+"Unapređena gornja granica posebno je jača na mrežama sa uskim slojevima."
+],
+"source_labels": [0, 1, 0, 0, 0, 0, 0, 0],
+"rouge_scores": [0.1999999952880001, 0.44444443955418383, 0.2758620639892985, 0.415094334766821, 0.09302325179015701, 0.10810810539079627, 0.31249999500488285, 0.09090908674586796],
+"paper_id": "B1MAJhR5YX",
+"target": [
+"Pružamo poboljšane gornje granice za broj linearnih regiona korišćenih u izražajnosti mreže i visoko efikasan algoritam (u odnosu na tačno brojanje) za dobijanje verovatnosnih donjih granica stvarnog broja linearnih regiona.",
+"Doprinosi proučavanju broja linearnih regiona u RELU neuronskim mrežama korišćenjem približnog verovatnosnog brojanja algoritama i analize.",
+"Nastavlja se na prethodne radove koji proučavaju brojanje linearnih regiona u dubokim neuronskim mrežama i unapređuje prethodno predloženu gornju granicu promenom dimenzionalnih ograničenja.",
+"Rad se bavi izražajnošću neuronske mreže sa linearnim delovima u obliku segmenta, karakterisane brojem linearnih regiona funkcije koja se modeluje, i koristi verovatnosne algoritme za brže računanje granica, uz dokazivanje strožih granica."
+],
+"title": "Empirijske Granice Linearnih Regiona Dubokih Mreža sa Ispravljačima"
+},
+{
+"source": [
+"Sposobnost višestrukog pogleda kroz niz prilagođenih položaja fundamentalna je za ljudski vid.",
+"Ova kritična sposobnost omogućava nam razumevanje izuzetno složenih vizuelnih scena.",
+"Kratkoročna memorija igra ključnu ulogu u agregiranju informacija dobijenih iz ovih pogleda i informiše našu interpretaciju scene.",
+"Računarski modeli su pokušali da reše problem pogleda i vizuelne pažnje, ali nisu uspeli da uključe koncept memorije.",
+"Predstavljamo novu, biološki inspirisanu arhitekturu radne memorije za vizuelnu percepciju koju nazivamo Hebb-Rosenblatt memorija.",
+"Zatim uvodimo potpuno diferencijabilan model za kratkoročnu pažljivu radnu memoriju (Short Term Attentive Working Memory - STAWM) koji koristi transformacionu pažnju (transformational attention) za učenje memorije svaki put kad vidi sliku.",
+"Stanje naše Hebb-Rosenblatt memorije je ugrađeno u STAWM kao prostor za težine sloja.",
+"Projektovanjem različitih upita kroz ovaj sloj možemo dobiti ciljno usmerene latentne reprezentacije za zadatke, uključujući klasifikaciju i vizuelnu rekonstrukciju.",
+"Naš model postiže visoko konkurentne rezultate u klasifikaciji MNIST i CIFAR-10 skupova podataka.",
+"Kao što je prikazano kroz skup podataka CelebA, za izvođenje rekonstrukcije model uči da napravi niz ažuriranja na platnu koje čine reprezentaciju zasnovanu na delovima.",
+"Klasifikacija sa samo-supervizovanom reprezentacijom dobijenom iz MNIST-a pokazuje se u skladu sa najmodernijim modelima (nijedan od kojih ne koristi mehanizam vizuelne pažnje).",
+"Na kraju, pokazujemo da se STAWM može obučiti pod dvostrukim ograničenjima klasifikacije i rekonstrukcije kako bi pružio interpretativnu vizuelnu blokčetu (skicu) koja pomaže otvaranju 'crne kutije' dubokog učenja."
+],
+"source_labels": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+"rouge_scores": [0.05555555061728439, 0.0645161244536944, 0.19512194622248677, 0.3243243193571951, 0.3999999951020409, 0.08888888395061757, 0.2777777728395062, 0.14999999500000016, 0.0645161244536944, 0.09756097061273078, 0.3913043429111531, 0.24999999513888896],
+"paper_id": "B1fbosCcYm",
+"target": [
+"Biološki inspirisana radna memorija koja se može integrisati u rekurentne modele vizuelne pažnje za najnoviju izvedbu",
+"Uvodi novu mrežnu arhitekturu inspirisanu vizuelnom pažnjom i primenjuje je na zadatke klasifikacije i korišćenja kao generativnog modela",
+"Rad obogaćuje model rekurentne pažnje sa novom Hebb-Rosenblatt radnom memorijom i postiže konkurentske rezultate na MNIST-u."
+],
+"title": "Biološki Inspirirana Vizuelna Radna Memorija za Duboke Mreže"
+},
+{
+"source": [
+"Generativni modeli su uspešno primenjeni na prenos stila slika i prevođenje domena.",
+"Međutim, još uvek postoji značajna razlika u kvalitetu rezultata kada se takvi zadaci uče na muzičkom zvuku.",
+"Osim toga, većina modela za prevođenje omogućava samo jedan-na-jedan ili jedan-na-više prenos uz oslanjanje na odvojene enkodere ili dekodere i kompleksne, računarski teške modele.",
+"U ovom radu predstavljamo Modulisane Varijacione Autoenkodere (MoVE) za izvođenje transfera muzičkog timbra.",
+"Prvo, definišemo transfer timbra kao primenu delova slušnih svojstava muzičkog instrumenta na drugi.",
+"Pokazujemo da ovaj zadatak možemo postići i unaprediti tako što ćemo usloviti postojeće tehnike prevođenja domena Linearnom Modulacijom po karakteristikama (Feature-wise Linear Modulation - FiLM).",
+"Zatim, zamenjujući uobičajeni kriterijum adversarnog prevođenja kriterijumom Maksimalne Srednje Diskrepancije (Maximum Mean Discrepancy - MMD), oslobađamo potrebu za pomoćnim parom diskriminativnih mreža.",
+"Ovo omogućava brže i stabilnije obučavanje, zajedno sa kontrolisanim enkoderom latentnog prostora.",
+"Dodatnim uslovljavanjem našeg sistema sa nekoliko različitih instrumenata, možemo generalizovati prenos od mnogo-na-mnogo unutar jedne varijacione arhitekture sposobne za izvođenje multi-domain transfera.",
+"Naši modeli mapiraju ulaze u 3D reprezentacije, uspešno prevodeći timbre sa jednog instrumenta na drugi i podržavajući sintezu zvuka na smanjenom skupu kontrolnih parametara.",
+"Evaluiramo našu metodu u zadacima rekonstrukcije i generacije, analizirajući distribucije auditornih deskriptora između prenetih domena.",
+"Prikazujemo da ova arhitektura inkorporira generativne kontrole u multi-domain transfer, zadržavajući pri tome relativno laku i brzu obuku i efikasnost na malim skupovima podataka."
+],
+"source_labels": [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+"rouge_scores": [0.05405404949598286, 0.0, 0.04651162297458138, 0.10256409783037496, 0.09756097075550292, 0.17777777280000015, 0.08333332833333364, 0.10526315324099744, 0.29166666166666677, 0.08163264806330726, 0.09523809034013632, 0.08510637798098716],
+"paper_id": "HJgOl3AqY7",
+"target": [
+"Rad koristi Varijaciono Auto-Enkodiranje i uslovljavanje mreža za Transfer Muzičkog Timbra, razvijamo i generalizujemo našu arhitekturu za transfer između mnogo instrumenata uz vizualizaciju i evaluaciju.",
+"Predlaže Modulisane Varijacione Autoenkodere za izvođenje transfera muzičkog timbra zamjenjujući uobičajeni kriterijum adversarnog prevođenja kriterijumom Maksimalne Srednje Diskrepancije (MMD).",
+"Opisuje mnogo-na-mnogo model za transfer muzičkog timbra koji se bazira na nedavnim razvojima u analizi visoko-dimenzionisanih statističkih problema i specifično, algoritmu za prenošenje poruka (message passing algorithm).",
+"Ovaj rad proučava autoenkodere pod nekoliko pretpostavki i ukazuje na to da se ovaj model slučajnog autoenkodera može elegantno i rigorozno analizirati jednodimenzionalnim jednačinama."
+],
+"title": "Modulisani Varijacioni Autoenkoderi za Mnogo-na-Mnogo Transfer Muzičkog Timbra"
+},
+{
+"source": [
+"Ispitujemo ponašanje autoenkodera sa vezanim težinama i višeslojnim slojevima u slučaju slučajnih težina.",
+"Kroz tačan karakterizaciju u granici velikih dimenzija, naša analiza otkriva interesantne fenomene faznih prelaza kada dubina postaje velika.",
+"Ovo, posebno, pruža kvantitativne odgovore i uvide u tri pitanja koja nisu potpuno razumevana u literaturi.",
+"Prvo, pružamo precizan odgovor na to kako se model slučajnih dubokih autoenkodera sa vezanim težinama ponaša kao 'aproksimativna inferencija', kako je postavio Scellier et al. (2018), i njegovu vezu sa reverzibilnošću koju razmatra nekoliko teorijskih studija.",
+"Drugo, pokazujemo da duboki autoenkoderi pokazuju veći stepen osetljivosti na perturbacije u parametrima, različito od plitkih pandana.",
+"Treće, dobijamo uvide o zamkama u praksi inicijalizacije obuke, i eksperimentalno demonstriramo da je moguće obučiti duboki autoenkoder, čak i sa tanh aktivacijom i dubinom od 200 slojeva, bez korišćenja tehnika kao što su prethodno obučavanje po slojevima ili normalizacija grupa.",
+"Naša analiza nije specifična za dubine ili Lipschitz aktivacije i naše analitičke tehnike mogu imati širu primenljivost."
+],
+"source_labels": [0, 1, 0, 0, 0, 0, 0],
+"rouge_scores": [0.6341463371326591, 0.7083333284722222, 0.0869565169754256, 0.0983606507712983, 0.16326530122448993, 0.08695651691661443, 0.08510637816206455],
+"paper_id": "HJx54i05tX",
+"target": [
+"Proučavamo ponašanje višeslojnih autoenkodera sa vezanim težinama u slučaju slučajnih težina. Putem tačnog karakterizovanja u granici velikih dimenzija, naša analiza otkriva interesantne fenomene faznih prelaza.",
+"Teorijska analiza autoenkodera sa vezanim težinama između enkodera i dekodera (weight-tied) putem analize srednjeg polja (mean field analysis)",
+"Analizira performanse autoenkodera sa vezanim težinama koristeći se najnovijim napretkom u analizi problema visokih dimenzija i posebno, algoritmom prenošenja poruka (message passing algorithm).",
+"Ovaj rad proučava autoenkodere pod nekoliko pretpostavki, i ukazuje na zamke u praksi inicijalizacije obuke, i eksperimentalno demonstrira da je moguće obučiti duboki autoenkoder, čak i sa tanh aktivacijom i dubinom od 200 slojeva, bez korišćenja tehnika kao što su prethodno obučavanje po slojevima ili normalizacija grupa."
+],
+"title": "O Slučajnim Dubokim Autoencoderima Sa Vezanim Težinama: Tačna Asimptotska Analiza, Fazni Prijelazi i Posledice na Obuku"
+},
+{
+"source": [
+"Ocenjivanje udaljenosti između stvarne i uzorkovane distribucije ključna je komponenta mnogih generativnih modela najnovije generacije, kao što su Wasserstein Autoenkoderi (WAE).",
+"Inspirisani prethodnim radom na Sliced-Wasserstein Autoencoderima (SWAE) i\n",
+"kernel glađenju, konstruišemo novi generativni model - Cramer-Wold AutoEncoder (CWAE).",
+"CWAE funkcija troška, bazirana na uvedenoj Cramer-Wold udaljenosti između uzoraka, ima jednostavni zatvoreni oblik u slučaju normalne prior distribucije.",
+"Kao posledica, dok pojednostavljuje proceduru optimizacije (nema potrebe za uzorkovanjem koje je potrebno za evaluaciju funkcije udaljenosti u toku obuke), performanse CWAE-a kvantitativno i kvalitativno odgovaraju performansama WAE-MMD (WAE sa funkcijom udaljenosti baziranom na maksimalnoj srednjoj diskrepanci) i često poboljšavaju SWAE."
+],
+"source_labels": [0, 0, 1, 0, 0],
+"rouge_scores": [0.13636363137396712, 0.5999999958, 0.7272727226446282, 0.19512194622248677, 0.06666666211666698],
+"paper_id": "rkgwuiA9F7",
+"target": [
+"Inspirisan prethodnim radom na Sliced-Wasserstein Autoencoderima (SWAE) i glađenju jezera (kernel smoothing), konstruišemo novi generativni model - Cramer-Wold AutoEncoder (CWAE).",
+"Ovaj rad predlaže varijantu WAE-a baziranu na novoj statističkoj udaljenosti između distribucije kodiranih podataka i latentne prior distribucije.",
+"Uvodi se varijacija Wasserstein Autoencodera koja koristi Cramer-Wold udaljenost između dve distribucije bazirane na Cramer-Wold teoremi."
+],
+"title": "Cramer-Wold AutoEncoder"
+},
+{
+"source": [
+"Predlažemo šemu odbijanja uzoraka pomoću diskriminatora GAN-a da bismo\n",
+"aproksimirali ispravke grešaka u distribuciji generatora GAN-a.",
+"Pokazujemo da\n",
+"pod prilično strogim pretpostavkama, ovo će nam omogućiti da tačno rekonstruišemo podatkovnu distribuciju\n",
+"Ispitujemo gde te stroge pretpostavke propadaju i dizajniramo\n",
+"praktičan algoritam - nazvan Discriminator Rejection Sampling (DRS) - koji se može\n",
+"koristiti na stvarnim skupovima podataka.",
+"Na kraju, demonstriramo efikasnost DRS-a na mešavini\n",
+"Gausijana i na najnovijem modelu SAGAN.",
+"Na ImageNet-u obučavamo\n",
+"unapređeni osnovni model koji povećava najbolji objavljen Inception Skor sa 52.52 na\n",
+"62.36 i smanjuje Frechet Inception Rastojanje sa 18.65 na 14.79.",
+"Zatim koristimo\n",
+"DRS da dalje unapredimo ovu osnovnu vrednost, poboljšavajući Inception Skor na 76.08\n",
+"i FID na 13.75."
+],
+"source_labels": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+"rouge_scores": [0.6896551675624257, 0.23999999564800004, 0.09999999745000007, 0.1333333284222224, 0.13793102963139137, 0.0, 0.09523809215419511, 0.2962962916323732, 0.23076922624260363, 0.09090908739669434, 0.13793102963139137, 0.12903225311134256, 0.19999999745000002, 0.19999999508888905, 0.17391303962192828],
+"paper_id": "S1GkToR5tm",
+"target": [
+"Koristimo diskriminator GAN-a za sprovođenje aproksimativne šeme odbijanja uzoraka na izlazu generatora GAN-a.",
+" Predlaže se algoritam odbijanja uzoraka za uzimanje uzoraka iz generatora GAN-a.",
+"Ovaj rad predstavlja postupak odbijanja uzoraka za GAN, nazvan Discriminator Rejection Sampling (DRS), koji pomaže filtriranje 'dobrih' uzoraka iz generatora GAN-a."
+],
+"title": "Discriminator Rejection Sampling"
+},
+{"source": ["Kvalitet karakteristika korišćenih u vizuelnom prepoznavanju ima fundamentalan značaj za ukupni sistem.", "Dugo vremena, algoritmi za niske nivoe ručno dizajniranih karakteristika kao što su SIFT i HOG postizali su najbolje rezultate u prepoznavanju slika.", "Vizuelne karakteristike su nedavno izdvojene iz obučenih konvolutivnih neuronskih mreža.", "Iako postiže visokokvalitetne rezultate, jedna od glavnih mana ovog pristupa, u poređenju sa ručno dizajniranim karakteristikama, jeste vreme obuke potrebno tokom procesa učenja.", "U ovom radu predlažemo jednostavan i brz način obuke nadgledanih konvolutivnih modela za ekstrakciju karakteristika uz održavanje visokog kvaliteta.", "Ova metodologija je evaluirana na različitim skupovima podataka i upoređena sa najsavremenijim pristupima."], "source_labels": [0, 0, 1, 0, 0, 0], "rouge_scores": [0.22222221728395072, 0.0, 0.434782603705104, 0.0, 0.17647058366782017, 0.0], "paper_id": "SyGT_6yCZ", "target": ["Jednostavan i brz metod za ekstrakciju vizuelnih karakteristika iz konvolutivnih neuronskih mreža", "Predlaže se brz način za učenje konvolutivnih karakteristika koje kasnije mogu da se koriste sa bilo kojim klasifikatorom uz korišćenje smanjenog broja epoha obuke i određenih kašnjenja u šemi obuke za opadanje stopa učenja", "Koristi se šema opadanja stope učenja koja je fiksna u odnosu na broj epoha korišćenih u obuci i izdvaja se izlaz poslednjeg sloja kao karakteristike za obuku klasičnog klasifikatora."], "title": "Jednostavno i Brzo Učenje Konvolutivnih Karakteristika"},
+{"source": ["Razvijamo okvir za razumevanje i unapređenje rekurentnih neuronskih mreža (RNN) koristeći maksimalne afine spline operatore (MASO).", "Dokazujemo da se RNN-ovi koji koriste parcijalno afine i konveksne nelinearnosti mogu zapisati kao jednostavan parcijalno afilan spline operator.", "Nastala reprezentacija pruža nekoliko novih perspektiva za analizu RNN-ova, tri od kojih proučavamo u ovom radu.", "Prvo, pokazujemo da RNN interno razdvaja prostor ulaza tokom obuke i da izgrađuje particiju tokom vremena.", "Drugo, pokazujemo da afina nagibna vrednost RNN-a odgovara šablonu koji zavisi od ulaza, iz kojeg možemo tumačiti da RNN izvodi jednostavno uparivanje šablona (matched filtering) s obzirom na ulaz.", "Treće, pažljivim ispitivanjem afilnog preslikavanja MASO RNN-a, dokazujemo da korišćenje slučajnog početnog skrivenog stanja odgovara eksplicitnom L2 regularizaciji afilnih parametara, što može ublažiti problem eksplozije gradijenata i poboljšati generalizaciju.", "Obimni eksperimenti na nekoliko skupova podataka različitih modaliteta demonstriraju i potvrđuju svaku od navedenih zaključaka.", "Posebno, korišćenje slučajnih početnih skrivenih stanja dovodi do toga da obični RNN-ovi postanu gotovo najbolji izvođači na ovim skupovima."], "source_labels": [1, 0, 0, 0, 0, 0, 0, 0], "rouge_scores": [0.3870967692403746, 0.3124999950781251, 0.12499999507812519, 0.05882352456747445, 0.13953487932936734, 0.1249999958680557, 0.1379310294887041, 0.12499999507812519], "paper_id": "BJej72AqF7", "target": ["Prilažemo nove uvide i tumačenja RNN-ova iz perspektive maksimalnih afilnih spline operatora.", "Prepravljamo jednačine Elman RNN-a u terminima tzv. maksimalnih afilnih spline operatora", "Daje se novi pristup razumevanju RNN-ova koristeći maksimalne afilne spline operatore (MASO) prepravljanjem sa parcijalno afilnim i konveksnim aktivacijama MASO-a", "Autori se oslanjaju na tumačenje maksimalnih afilnih spline operatora velikog broja dubokih mreža, fokusirajući se na rekurentne neuronske mreže koristeći šum u početnom skrivenom stanju kao regularizaciju"], "title": "Perspektiva Maksimalnih Afatnih Spline-a na Rekurentne Neuronske Mreže"},
+{
+   "source":[
+      "Zaključivanje nad tekstom i bazama znanja (KB) predstavlja veliki izazov za veštačku inteligenciju, sa primenama u mašinskom čitanju, dijalogu i odgovaranju na pitanja.",
+      "Pretvaranje teksta u logičke oblike nad kojima se može raditi je krhak i grešan proces.",
+      "Rad direktno na tekstu zajedno sa učenjem reprezentacija i transformacija putem neuronskih arhitektura koje nemaju sposobnost učenja i iskorišćavanja opštih pravila može biti veoma neučinkovit u pogledu podataka i ne generalizuje se ispravno.",
+      "Ovi problemi se rešavaju Neuralnim Teoretskim Dokaazivačima (NTP) (Rockt\u00e4schel & Riedel, 2017), neuronskim simboličkim sistemima zasnovanim na kontinuiranoj relaksaciji Prolog-ovog algoritma unazadnog zaključivanja, gde se simbolička unifikacija između atoma zamenjuje diferencijabilnim operatorom koji računa sličnost između njihovih ugnježdenih reprezentacija.",
+      "U ovom radu prvo predstavljamo Neuralne Teoretske Dokaazivače u susedstvu (NaNTP), koji se sastoje od dve ekstenzije za NTP, tačnije,",
+      "a) metodu za drastično smanjenje prethodno zabranjene vremenske i prostorne složenosti tokom zaključivanja i učenja, i",
+      "b) mehanizam pažnje za poboljšanje procesa učenja pravila, čineći ih korisnim na skupovima podataka iz stvarnog sveta.",
+      "Zatim, predstavljamo novi pristup zajedničkom zaključivanju o činjenicama iz KB i tekstualnim pomenima, tako da ih zajedno ugnežđujemo u deljeni prostor ugnežđivanja.",
+      "Predložena metoda može da izvuče pravila i pruži objašnjenja - uključujući tekstualne obrasce i odnose u KB - iz velikih KB i tekstualnih korpusa.",
+      "Pokažemo da NaNTP-i performišu na nivou sa NTP-ima uz frakciju troška, i mogu postići konkurentske rezultate predviđanja veza na izazovnim skupovima podataka velikog obima, uključujući WN18, WN18RR i FB15k-237 (sa i bez tekstualnih pomena), uz mogućnost pružanja objašnjenja za svaku predviđenu vrednost i izvlačenje interpretabilnih pravila."
+   ],
+   "source_labels":[
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.22727272227272738,
+      0.15789473196675916,
+      0.22641508948380215,
+      0.1290322534859523,
+      0.15384614892833676,
+      0.1052631530193908,
+      0.21052631091412755,
+      0.13953487872363457,
+      0.1904761854875285,
+      0.12307691859881674
+   ],
+   "paper_id":"BJzmzn0ctX",
+   "target":[
+      "Širimo Neuralne Teoretske Dokaazivače na velike skupove podataka, unapređujemo proces učenja pravila i proširujemo ga na zajedničko zaključivanje o tekstu i bazama znanja.",
+      "Predlaže se proširenje sistema Neuralnih Teoretskih Dokaazivača koje se bavi glavnim problemima ovog modela smanjujući vreme i prostornu složenost modela.",
+      "Škali NTP-ove korišćenjem aproksimativnog pretrage najbližih suseda nad činjenicama i pravilima tokom unifikacije i sugeriše parametrizaciju predikata korišćenjem pažnje prema poznatim predikatima.",
+      "Unapređuje prethodno predloženi pristup Neuralnom Teoretskom Dokaazivaču korišćenjem pretrage najbližih suseda."
+   ],
+   "title":"Proširivo dokazivanje Neuralnih Teorema na bazama znanja i prirodnom jeziku"
+},
+{
+   "source":[
+      "Ispitujemo metode kojima Reservoir Computing Network (RCN) uči koncepte kao što su 'slično' i 'različito' između parova slika koristeći mali skup za obuku i generalizuje ove koncepte na prethodno neviđene vrste podataka.",
+      "Konkretno, pokazujemo da se RCN obučen za identifikaciju odnosa između parova slika, izvučenih iz podskupa brojeva iz baze podataka MNIST ili dubinskih mapa podskupa vizuelnih scena sa pokretnog kamere, generalizuje naučene transformacije na slike brojeva koji nisu viđeni tokom obuke ili dubinske mape različitih vizuelnih scena.",
+      "Inferišemo, koristeći Analizu Glavnih Komponenata, da se visokodimenzionalni rezervoarski stanovi generisani iz para ulaznih slika sa određenom transformacijom tokom vremena konvergiraju prema jedinstvenom odnosu.",
+      "Stoga, za razliku od obuke celog visokodimenzionalnog rezervoarskog stanja, rezervoar treba da se obučava samo na ovim jedinstvenim odnosima, omogućavajući rezervoaru da dobro funkcioniše sa veoma malim brojem primera za obuku.",
+      "Stoga je generalizacija učenja na neviđene slike tumačljiva u smislu klasteriranja rezervoarskog stanja na atraktor koji odgovara transformaciji u prostoru rezervoara.",
+      "Otkrivamo da RCN može identifikovati i generalizovati linearnu i nelinearnu transformaciju, kao i kombinacije transformacija, na prirodan i robustan način i biti efikasan klasifikator slika.",
+      "Dodatno, RCN-ovi se značajno bolje ponašaju od tehnikama klasifikacije neuronskih mreža kao što su duboke Siamese Neuralne Mreže (SNN) u zadacima generalizacije kako na skupu podataka MNIST, tako i na složenijim dubinskim mapama vizuelnih scena sa pokretnog kamere.",
+      "Ovaj rad pomaže u premošćavanju jaza između objašnjive mašinske učenja i biološkog učenja kroz analogije uz korišćenje malih skupova podataka, i ukazuje na nove pravce istraživanja procesa učenja."
+   ],
+   "source_labels":[
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.49230768730887575,
+      0.2941176420761246,
+      0.16666666168888902,
+      0.14035087226839044,
+      0.23076922603550304,
+      0.11538461065088776,
+      0.14084506547113684,
+      0.350877188057864
+   ],
+   "paper_id":"HyFaiGbCW",
+   "target":[
+      "Generalizacija odnosa naučenih između parova slika koristeći mali skup za obuku na prethodno neviđenim vrstama slika koristeći objašnjiv model dinamičkih sistema, Reservoir Computing, i biološki verovatnu tehniku učenja zasnovanu na analogijama.",
+      "Tvrdi rezultate \"kombinovanja transformacija\" u kontekstu RC-a korišćenjem mreže sa ekoloskom stanja sa standardnim aktivacijama tanh, sa razlikom da rekurentne težine nisu obučavane.",
+      "Novi metod klasifikacije različitih distorzija podataka MNIST.",
+      "Rad koristi mrežu ekoloskog stanja za učenje klasifikacije transformacija slika između parova slika u jednu od pet klasa."
+   ],
+   "title":"Generalizacija učenja uz pomoć Reservoir Computing-a"
+},
+{
+   "source":[
+      "Predstavljamo Generativno Adverzijalnu Privatnost i Pravičnost (GAPF), data-driven okvir za učenje privatnih i pravičnih reprezentacija podataka.",
+      "GAPF koristi nedavna dostignuća u adversarialnom učenju kako bi omogućio vlasniku podataka da nauči \"univerzalne\" reprezentacije koje razdvajaju skup osetljivih atributa od ostataka skupa podataka.",
+      "U okviru GAPF-a, pronalaženje optimalne sheme dekorelacije formulira se kao ograničena minimax igra između generativnog dekorelatora i protivnika.",
+      "Prikažemo da GAPF, uz odgovarajuće odabrane funkcije gubitka za protivnike, pruža garancije privatnosti protiv snažnih informaciono-teorijskih protivnika i sprovodi demografsku paritetu.",
+      "Takođe ocenjujemo performanse GAPF-a na višedimenzionalnim modelima Gausovih smeša i stvarnim skupovima podataka, i pokazujemo kako dizajner može sertifikovati da reprezentacije naučene pod protivnikom sa fiksnom arhitekturom dobro funkcionišu protiv složenijih protivnika."
+   ],
+   "source_labels":[
+      1,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.8205128155161079,
+      0.1333333283950619,
+      0.09999999500000027,
+      0.19512194622248677,
+      0.17857142397959197
+   ],
+   "paper_id":"H1xAH2RqK7",
+   "target":[
+      "Predstavljamo Generativno Adverzijalnu Privatnost i Pravičnost (GAPF), data-driven okvir za učenje privatnih i pravičnih reprezentacija sa sertifikovanim garancijama privatnosti/pravičnosti",
+      "Ovaj rad koristi GAN model kako bi pružio pregled povezane literature o učenju privatnih/pravičnih reprezentacija (PRL).",
+      "Ovaj rad predstavlja adversarialni pristup za privatne i pravične reprezentacije putem naučene distorzije podataka koja minimizira zavisnost o osetljivim promenljivima, pri čemu je stepen distorzije ograničen.",
+      "Autori opisuju okvir za učenje reprezentacije demografske pariteta koji se može koristiti za obuku određenih klasifikatora."
+   ],
+   "title":"Generativni Adverzijalni Modeli za Učenje Privatnih i Pravičnih Reprezentacija"
+},
+{
+   "source":[
+      "Trenutni algoritmi za mašinsko učenje lako se prevare pomoću adversarnih primera.",
+      "Jedno moguće rešenje je pravljenje modela koji koriste prag za poverenje kako bi izbegli greške.",
+      "Takvi modeli odbijaju da daju predviđanja kada nisu sigurni u svoj odgovor.",
+      "Predlažemo da se takvi modeli ocenjuju na osnovu krivih kompromisa sa ciljem visokog uspeha na čistim primerima i niskog broja grešaka na adversarnim primerima.",
+      "Postojeći nenamerni napadi razvijeni za modele koji ne koriste prag za poverenje često potcenjuju ranjivost takvih modela.",
+      "Predlažemo porodicu napada MaxConfidence, koja je optimalna u različitim teorijskim postavkama, uključujući jednu realističnu postavku: napadi na linearne modele.",
+      "Eksperimenti pokazuju da napad ostvaruje dobre rezultate u praksi.",
+      "Prikažemo da jednostavne odbrane mogu dobro funkcionisati na skupu podataka MNIST, ali ne i na CIFAR, što dodatno doprinosi ranijim pozivima da se MNIST povuče kao skup podataka za testiranje otpornosti na adversarne napade.",
+      "Objavljujemo kod za ove evaluacije kao deo cleverhans (Papernot et al 2018) biblioteke (Recenzenti ICLR-a trebaju biti oprezni da ne pogledaju ko je doprineo ovim karakteristikama cleverhans-a kako bi izbegli de-anonimizaciju ovog priloga)."
+   ],
+   "source_labels":[
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.13793102977407862,
+      0.24242423746556482,
+      0.060606055647383326,
+      0.23809523319727902,
+      0.2777777727777779,
+      0.19512194629387283,
+      0.0740740696296299,
+      0.16326530147438578,
+      0.07999999539200027
+   ],
+   "paper_id":"H1g0piA9tQ",
+   "target":[
+      "Predstavljamo metrike i optimalni napad za ocenu modela koji se brane od adversarnih primera koristeći prag za poverenje",
+      "Ovaj rad uvodi porodicu napada na algoritme koji koriste prag za poverenje, fokusirajući se uglavnom na metodologiju ocene.",
+      "Predlaže metodologiju ocene za modele odbrane sa pragom za poverenje i pristup generisanju adversarnih primera izborom netačne klase sa najviše poverenja prilikom korišćenja ciljanih napada.",
+      "U radu se predstavlja metodologija za ocenu napada na modele sa pragom za poverenje i predlaže se novi tip napada."
+   ],
+   "title":"Metodologija za Ocenu Napada na Modele sa Pragom za Poverenje"
+},
+{
+   "source":[
+      "Duboko učenje postiglo je izvanredne uspehe u rešavanju izazovnih problema pojačanog učenja (RL) kada je pružena gusta funkcija nagrade.",
+      "Međutim, u okruženju sa retkom nagradom često se suočava sa potrebom da se pažljivo oblikuje funkcija nagrade kako bi se vodila optimizacija politike.",
+      "To ograničava primenljivost RL-a u stvarnom svetu jer su i učenje pojačanja i specifično znanje o domenu potrebni.",
+      "Stoga je od velikog praktičnog značaja razvijati algoritme koji mogu da uče iz binarnog signala koji ukazuje na uspešno završetak zadatka ili druge neoblikovane, retke signale nagrade.",
+      "Predlažemo novu metodu nazvanu kompetitivno iskustveno preigravanje, koja efikasno dopunjuje retku nagradu stavljanjem učenja u kontekst istraživačkog takmičenja između para agenata.",
+      "Naša metoda dopunjuje nedavno predloženo iskustvo s povratkom (HER) indukujući automatski istraživački kurikulum.",
+      "Evaluiramo svoj pristup na zadacima dostizanja različitih ciljnih lokacija u lavirintu sa mravima i manipulacije objektima robotskom rukom.",
+      "Svaki zadatak pruža samo binarne nagrade koje ukazuju da li je cilj postignut ili ne.",
+      "Naša metoda asimetrično dopunjuje ove retke nagrade za par agenata koji uče isti zadatak, stvarajući takmičarsku igru dizajniranu za vođenje istraživanja.",
+      "Obimni eksperimenti pokazuju da ova metoda dovodi do bržeg konvergiranja i poboljšane izvedbe zadatka."
+   ],
+   "source_labels":[
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.06896551253269949,
+      0.19999999535555565,
+      0.0,
+      0.2631578906232687,
+      0.2631578906232687,
+      0.07407406924554216,
+      0.11764705444636694,
+      0.0,
+      0.22857142426122457,
+      0.15999999507200013
+   ],
+   "paper_id":"Sklsm20ctX",
+   "target":[
+      "nova metoda za učenje sa retkom nagradom uz korišćenje adversarialnog ponovnog označavanja nagrade",
+      "Predlaže se korišćenje kompetitivnog višeagenta za podsticanje istraživanja i pokazuje se da je CER + HER > HER ~ CER",
+      "Predlaže se nova metoda za učenje iz retkih nagrada u postavkama model-free pojačanog učenja i guste nagrade",
+      "Da bi se rešili problemi sa retkom nagradom i podstaklo istraživanje u RL algoritmima, autori predlažu strategiju ponovnog označavanja nazvanu Kompetitivno Iskustvo Reply (CER)."
+   ],
+   "title":"Kompetitivno iskustveno preigravanje"
+},
+{
+   "source":[
+      "Ovaj rad predlaže neuronski end-to-end model za pretvaranje teksta u govor (TTS) koji može kontrolisati latentne atribute u generisanom govoru koji su retko anotirani u obuci, kao što su stil govora, akcenat, pozadinska buka i uslovi snimanja.",
+      "Model je formulisan kao uslovni generativni model sa dva nivoa hijerarhijskih latentnih varijabli.",
+      "Prvi nivo je kategorička varijabla koja predstavlja grupe atributa (npr. čisto/bučno) i pruža interpretaciju.",
+      "Drugi nivo, uslovljen prvim, je multivarijabilna Gausova varijabla koja karakteriše specifične konfiguracije atributa (npr. nivo buke, brzina govora) i omogućava razdvojenu fino kontrolu nad tim atributima.",
+      "To podrazumeva korišćenje modela mešanja Gausovih funkcija (GMM) za latentnu distribuciju.",
+      "Obimna evaluacija pokazuje njegovu sposobnost da kontroliše navedene atribute.",
+      "Posebno, sposoban je za dosledno sintetizovanje visokokvalitetnog čistog govora bez obzira na kvalitet obučnih podataka za ciljnog govornika."
+   ],
+   "source_labels":[
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.23076922624260363,
+      0.24242423746556482,
+      0.11428570928979613,
+      0.33333332864583337,
+      0.19354838222684714,
+      0.071428566836735,
+      0.05405404905770682
+   ],
+   "paper_id":"rygkk305YQ",
+   "target":[
+      "Izrada TTS modela sa Gaussian Mixture VAE omogućava fino kontrolisanje stila govora, uslova buke i još mnogo toga.",
+      "Opisuje se uslovljen GAN model za generisanje govora uslovljenog govornikom Mel spektrima putem proširenja z-prostora koji odgovara identifikaciji.",
+      "Ovaj rad predlaže dvoslojni model sa latentnim varijablama kako bi se dobila razdvojena latentna reprezentacija, olakšavajući fino kontrolisanje različitih atributa.",
+      "Ovaj rad predlaže model koji može kontrolisati neanotirane atribute kao što su stil govora, akcenat, pozadinska buka, itd."
+   ],
+   "title":"Hijerarhijsko generativno modeliranje za kontrolisano sintetisanje govora"
+},
+{
+   "source":[
+      "Modeli za vizuelno pitanje i odgovaranje (VQA) do sada su se suočavali sa problemima brojanja objekata na slikama prirodnog sveta.",
+      "Identifikujemo fundamentalni problem uzrokovan mekim usmeravanjem u ovim modelima kao uzrokom.",
+      "Kako bismo zaobišli ovaj problem, predlažemo komponentu neuronske mreže koja omogućava robustno brojanje na osnovu predloga objekata.",
+      "Eksperimenti na jednostavnom zadatku pokazuju efikasnost ove komponente i postižemo najnoviji nivo tačnosti u kategoriji broja u VQA v2 skupu podataka, a da pri tom ne negativno utičemo na druge kategorije, čak nadmašujemo modele ansambla našim pojedinačnim modelom.",
+      "Na teškom metriku ravnoteže parova, komponenta omogućava značajno poboljšanje brojanja u odnosu na snažan osnovni model za 6,6%."
+   ],
+   "source_labels":[
+      1,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.2962962913580247,
+      0.1538461488757398,
+      0.13793102963139137,
+      0.043478257013232866,
+      0.06451612428720119
+   ],
+   "paper_id":"B12Js_yRb",
+   "target":[
+      "Omogućavanje modelima za vizuelno pitanje i odgovaranje da broje obradom preklapajućih predloga objekata.",
+      "Ovaj rad predlaže arhitekturu mreže na grafičkoj reprezentaciji predloga objekata za izvođenje meke nepotpune supresije kako bi se dobio broj objekata.",
+      "Fokusiranje na problem brojanja u vizuelnom pitanju i odgovaranju koristeći mehanizam pažnje i predstavlja diferencijabilnu komponentu za brojanje koja eksplicitno broji broj objekata.",
+      "Ovaj rad se bavi problemom brojanja objekata u vizuelnom pitanju i odgovaranju, predlaže mnoge heuristike za pronalaženje tačnog broja."
+   ],
+   "title":"Učenje brojanja objekata na prirodnim slikama za vizuelno pitanje i odgovaranje"
+},
+{
+   "source":[
+      "Predlažemo jednostavan i robusan pristup za izradu reprezentacija rečenica bez obuke.",
+      "Inspirisani Gram-Schmidt procesom u geometrijskoj teoriji, izrađujemo ortogonalnu osnovu podprostora koji čini reč i njenu okolinu u rečenici.",
+      "Modeliramo semantičko značenje reči u rečenici na osnovu dva aspekta.",
+      "Jedan od njih je njen odnos prema vektoru reči već obuhvaćenim njenim kontekstualnim rečima.",
+      "Drugi je njeno novo semantičko značenje koje će biti predstavljeno kao novi bazni vektor koji je okomito na ovaj postojeći podprostor.",
+      "Sledići ovu motivaciju, razvijamo inovativnu metodu baziranu na ortogonalnoj osnovi za kombinovanje prethodno obučenih vektora reči u reprezentaciju rečenice.",
+      "Ovaj pristup zahteva nula obuku i nula parametara, uz efikasno izvođenje inferencije.",
+      "Evaluiramo naš pristup na 11 NLP zadataka nizvodno.",
+      "Eksperimentalni rezultati pokazuju da naš model nadmašuje sve postojeće metode bez obuke u svim zadacima i da je konkurentan drugim pristupima koji se oslanjaju ili na velike količine označenih podataka ili na dugo vreme obuke."
+   ],
+   "source_labels":[
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+   ],
+   "rouge_scores":[
+      0.33333332888888895,
+      0.12765956947034876,
+      0.10526315324099744,
+      0.0,
+      0.0,
+      0.09090908595041348,
+      0.2777777733333334,
+      0.06060605663911872,
+      0.35087718810710994
+   ],
+   "paper_id":"rJedbn0ctQ",
+   "target":[
+      "Jednostavan i bez-treniranja pristup za reprezentaciju rečenica sa konkurentskim performansama u poređenju sa sofisticiranim modelima koji zahtevaju velike količine obučenih podataka ili produženo vreme obuke.",
+      "Predstavljen je nov način generisanja reprezentacija rečenica bez obuke sa sistematskom analizom.",
+      "Predlaže se nov metod baziran na geometriji za reprezentaciju rečenica na osnovu vektora reči kvantifikujući novost, značajnost i korpus-jedinstvenost svake reči.",
+      "Ovaj rad istražuje reprezentaciju rečenica baziranu na ortogonalnom razlaganju prostora obuhvaćenog vektorima reči."
+   ],
+   "title":"Reprezentacija rečenica bez obuke putem ortogonalne osnove"
+},
+{
+   "source":[
+      "U zadatku klasifikacije sa malim brojem primera, zanimaju nas algoritmi za obuku klasifikatora na osnovu samo nekoliko označenih primera.",
+      "Nedavni napredak u klasifikaciji sa malim brojem primera uključivao je meta-učenje, pri čemu je definisan parametrizovani model za algoritam za učenje i obučen na epizodama koje predstavljaju različite probleme klasifikacije, svaki sa malim označenim skupom za obuku i odgovarajućim test skupom.",
+      "U ovom radu, unapređujemo ovaj paradigma klasifikacije sa malim brojem primera prema scenariju u kojem su takođe dostupni i nemarkirani primeri unutar svake epizode.",
+      "Razmatramo dve situacije: jednu u kojoj se pretpostavlja da svi nemarkirani primeri pripadaju istom skupu klasa kao i označeni primeri epizode, kao i izazovniju situaciju u kojoj su dostupni primeri iz drugih ometajućih klasa.",
+      "Da bismo se bavili ovim paradigmom, predlažemo nove proširenja Prototipskih mreža (Snell et al., 2017) koje su proširene sposobnošću da koriste nemarkirane primere prilikom generisanja prototipova.",
+      "Ovi modeli se treniraju na epizodama na krajnji način, kako bi naučili da uspešno iskoriste nemarkirane primere.",
+      "Evaluiramo ove metode na verzijama Omniglot i miniImageNet skupova podataka, prilagođenim ovom novom okviru sa nemarkiranim primerima.",
+      "Takođe predlažemo novu podelu ImageNet-a, koja se sastoji od velikog broja klasa, sa hijerarhijskom strukturom.",
+      "Naši eksperimenti potvrđuju da naše Prototipske mreže mogu da nauče da poboljšaju svoje predikcije zahvaljujući nemarkiranim primerima, slično kao što bi to uradila polu-supervizirana metoda."
+   ],
+   "source_labels":[
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.20512820013149255,
+      0.037735844357423165,
+      0.14999999500000016,
+      0.2799999952000001,
+      0.7755101992503124,
+      0.270270265303141,
+      0.3902438974419989,
+      0.2285714236734695,
+      0.23809523310657604
+   ],
+   "paper_id":"HJcSzz-CZ",
+   "target":[
+      "Predlažemo nove proširenja Prototipskih mreža koja su proširena sposobnošću da koriste nemarkirane primere prilikom generisanja prototipova.",
+      "Ovaj rad predstavlja proširenje prototipske mreže koje razmatra korišćenje dostupnih nemarkiranih primera kako bi se pomoglo u obuci svake epizode.",
+      "Istražuje problem polu-supervizirane klasifikacije sa malim brojem primera proširujući prototipske mreže u okviru polu-superviziranog učenja sa primerima iz ometajućih klasa.",
+      "Proširuje Prototipsku mrežu na polu-superviziranu postavku putem ažuriranja prototipova koristeći dodeljene pseudo-oznake, suočavanja sa ometajućima i ponderisanja uzoraka na osnovu udaljenosti od originalnih prototipova."
+   ],
+   "title":"Meta-učenje za polu-superviziranu klasifikaciju sa malim brojem primera"
+},
+{
+   "source":[
+      "Ispitujemo svojstva višedimenzionalnih verovatnoćnih distribucija u kontekstu prior distribucija latentnog prostora implicitnih generativnih modela.",
+      "Naš rad se vrti oko fenomena koji nastaju prilikom dekodiranja linearnih interpolacija između dva slučajna latentna vektora - regioni latentnog prostora u blizini porekla prostora su preuzorkovani, što ograničava upotrebu linearnih interpolacija kao alatke za analizu latentnog prostora.",
+      "Pokazujemo da se nepodudaranje distribucije može potpuno eliminisati pravilnim izborom prior distribucije latenta ili korišćenjem nelinearnih interpolacija.",
+      "Dokazujemo da postoji trgovina između toga da interpolacija bude linearna i da prior distribucija latenta ima čak i osnovna svojstva potrebna za stabilno obučavanje, kao što je konačna srednja vrednost.",
+      "Koristimo višedimenzionalnu Cauchy distribuciju kao primer prior distribucije, i takođe pružamo opšti metod za stvaranje nelinearnih interpolacija, koji se lako primenjuje na veliku grupu često korišćenih latentnih distribucija."
+   ],
+   "source_labels":[
+      1,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.31249999500000003,
+      0.1599999956480001,
+      0.21621621130752386,
+      0.17777777319506186,
+      0.12499999555555572
+   ],
+   "paper_id":"SyMhLo0qKQ",
+   "target":[
+      "Teorijski dokazujemo da su linearni interpolacije neprikladne za analizu obučenih implicitnih generativnih modela.",
+      "Pravi se analiza kada je linearni interpolant između dve slučajne promenljive ista distribucija, vezano za prior distribuciju implicitnog generativnog modela.",
+      "Ovaj rad istražuje kako interpolirati u latentnom prostoru datog latentnog modela."
+   ],
+   "title":"Trgovina između distribucije i interpolacije u generativnim modelima"
+},
+{
+   "source":[
+      "Duboki neuronski mreži (DNN) su pokazale obećavajuće performanse u računarstvu u oblasti vizije.",
+      "U medicinskoj slikovnoj obradi, postignuti su ohrabrujući rezultati dubokim učenjem za aplikacije kao što su segmentacija, detekcija lezija i klasifikacija.",
+      "Skoro sve metode analize slika zasnovane na dubokom učenju rade na rekonstruisanim slikama, koje se dobijaju iz originalnih snimaka rešavanjem inverznih problema (rekonstrukcija).",
+      "Algoritmi za rekonstrukciju su dizajnirani za ljudske posmatrače, ali nisu nužno optimizovani za DNN-ove koji često mogu da primećuju karakteristike koje su nerazumljive za ljudske oči.",
+      "Stoga je poželjno obučavati DNN-ove direktno sa originalnim podacima koji se nalaze u drugom domenu u odnosu na slike.",
+      "U ovom radu smo predložili DNN za detekciju nepravilnosti u medicinskoj slikovnoj obradi.",
+      "Da bi se uskladila akvizicija sa anotacijama koje su napravili radiolozi u domenu slika, izgrađena je DNN kao razmotrena verzija iterativnih algoritama za rekonstrukciju, kako bi se preslikale akvizicije u slike, a zatim sledi 3D konvolutivna neuronska mreža (CNN) za detekciju nepravilnosti na rekonstruisanim slikama.",
+      "Obe mreže su zajedno trenirane kako bi se optimizovao ceo DNN za zadatak detekcije na osnovu originalnih akvizicija.",
+      "DNN je implementiran za detekciju čvorova u plućima u niskodoznom rendgenskom skeneru grudnog koša (CT), gde je urađena numerička simulacija za generisanje akvizicija iz 1.018 slika CT grudnog koša sa anotacijama radiologa.",
+      "Predloženi DNN je pokazao bolju osetljivost i tačnost za zadatak u poređenju sa dvokorakom pristupom, u kojem su DNN-ovi za rekonstrukciju i detekciju obučavani odvojeno.",
+      "Primećeno je značajno smanjenje stope lažno pozitivnih rezultata za sumnjive lezije, što je od suštinskog značaja zbog poznate pre-dijagnoze u slikovima niskodoznog CT skeniranja pluća.",
+      "Slike rekonstruisane pomoću predložene DNN takođe su prikazale poboljšane detalje u regionu od interesa."
+   ],
+   "source_labels":[
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.0,
+      0.0,
+      0.1111111068672841,
+      0.0,
+      0.19354838251821027,
+      0.0,
+      0.08163264957934209,
+      0.06666666202222254,
+      0.19999999601250007,
+      0.0,
+      0.11428570997551038,
+      0.14814814331961607
+   ],
+   "paper_id":"rk1FQA0pW",
+   "target":[
+      "Detekcija čvorova u plućima počevši od projekcionih podataka umesto slika.",
+      "DNN-ovi se koriste za detekciju čvorova u plućima bazirane na patch-ovima u CT projekcionim podacima.",
+      "Zajedničko modelovanje rekonstrukcije kompjuterizovane tomografije i detekcije lezija u plućima obukom mapiranja od sirove sinograma do izlaza detekcije na kraju,",
+      "Predstavlja DNN arhitekturu koja kombinuje procesiranje CT slike i analizu slika u signalnom procesiranju kompjuterizovane tomografije."
+   ],
+   "title":"Detekcija nepravilnosti u medicinskoj slikovnoj obradi od kraja do kraja"
+},
+{
+   "source":[
+      "Algoritmi dubokog jačanja učenja (DRL) su pokazali napredak u učenju kako da se pronađe cilj u izazovnim okruženjima.",
+      "Kao što naslov rada Mirowski et al. (2016) sugeriše, moglo bi se pretpostaviti da su DRL bazirani algoritmi sposobni da uče navigaciju i da su spremni da zamene klasične algoritme mapiranja i planiranja putanja, barem u simuliranim okruženjima.",
+      "Međutim, iz eksperimenata i analize u ovom ranijem radu nije jasno koje strategije koriste ovi algoritmi pri navigaciji kroz lavirinte i pronalaženju cilja.",
+      "U ovom radu postavljamo i proučavamo ovo osnovno pitanje: da li DRL algoritmi vrše neku vrstu mapiranja i/ili planiranja putanja?",
+      "Naši eksperimenti pokazuju da algoritmi ne pamte mape lavirinta u testnoj fazi, već tokom faze obuke.",
+      "Stoga, DRL algoritmi ne ispunjavaju uslove da se kvalifikuju kao algoritmi za mapiranje ili planiranje putanja sa bilo kojom razumnom definicijom mapiranja.",
+      "Proširujemo eksperimente iz Mirowski et al. (2016) razdvajanjem skupa trening i test mapa i sprovođenjem detaljnijeg pokrivanja prostora eksperimenata.",
+      "Naši sistematski eksperimenti pokazuju da algoritam NavA3C-D1-D2-L, kada je obučen i testiran na istim mapama, može da bira kraće puteve do cilja.",
+      "Međutim, kada se testira na nepoznatim mapama, algoritam koristi strategiju praćenja zida kako bi pronašao cilj, bez izrade bilo kakvog mapiranja ili planiranja putanja."
+   ],
+   "source_labels":[
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+   ],
+   "rouge_scores":[
+      0.22222221777777784,
+      0.24615384118343206,
+      0.14545454049586792,
+      0.20408162790503967,
+      0.1666666619791668,
+      0.173913038941399,
+      0.1923076874260356,
+      0.11538461050295878,
+      0.1923076874260356
+   ],
+   "paper_id":"BkiIkBJ0b",
+   "target":[
+      "Kvantitativno i kvalitativno ocenjujemo metode navigacije bazirane na dubokom jačanju učenja u različitim uslovima kako bismo odgovorili na pitanje koliko su blizu zamene klasičnih planera putanja i algoritama mapiranja.",
+      "Ocena modela zasnovanog na dubokom RL-u na trening lavirintima merenjem ponovljenog kašnjenja do cilja i upoređivanjem sa najkraćim putem"
+   ],
+   "title":"Da li algoritmi dubokog jačanja učenja zaista uče kako da navigiraju?"
+}
+]

@@ -34,6 +34,12 @@ def lematize_list_of_sentences(sentences, nlp):
         sentences_lem.append(" ".join([word.lemma for word in sent.words]))
     #print(sentences_lem)
     return sentences_lem
+def lematize_matrix_of_sentences(matrix, nlp):
+    sentences_lem = []
+    ret_matrix = []
+    for list in matrix:
+        ret_matrix.append(lematize_list_of_sentences(list, nlp))
+    return ret_matrix
 
 def remove_zero_columns(X):
     # Find indices of columns with all zeros
@@ -152,4 +158,11 @@ def extract_sentances(X, sentence_percentage, depth_function, paragraph_split_tr
         extracted = np.concatenate((extracted, (np.sort(l[0:math.ceil(len(l)*sentence_percentage)]))))
     extracted = extracted.astype(int)
     return extracted
-    
+
+def average_alfa(X, depth_function, n):
+    Um, Sm, Vt = np.linalg.svd(X)
+    (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.95)
+    ss = SS(Vt, Sm)
+    depth = np.array(depth_function(ss, 1)[0]) 
+    depth = np.sort(depth)[::-1]
+    return (depth[n-1] + depth[n])/2   

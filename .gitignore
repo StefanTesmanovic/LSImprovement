@@ -1,4 +1,2 @@
-*.txt
-*.json
 __pycache__
 __pycache__/funcs.cpython-311.pyc
