@@ -1,3 +1,3 @@
 # LSImprovement
 
-main code is in master branch
+main code and readme is in master branch
