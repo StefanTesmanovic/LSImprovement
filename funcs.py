@@ -136,7 +136,7 @@ def depth_improved_function(ss, paragraph_split_treshold=0.4):
 
 def extract_sentances(X, sentence_percentage, depth_function, paragraph_split_treshold = 0.5):
     Um, Sm, Vt = np.linalg.svd(X)
-    (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.95)
+    (Um, Sm, Vt) = reduce(Um, Sm, Vt, 0.90)
     ss = SS(Vt, Sm)
     par_split = depth_function(ss, paragraph_split_treshold)[1]
     sim_score = np.sum(ss, axis=1)
